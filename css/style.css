@@ -1,0 +1,18 @@
+body {
+	background-color: #1B5432;
+	/*text-align: center;*/
+}
+
+.nav-wrapper {
+	background-color: black;
+	color: white;
+}
+
+/*.gameBoard {
+	margin: 50px;
+	height: 550px;
+	width: 500px;
+	background-color: yellow;
+	/*display: inline-block;*/
+}
+*/
