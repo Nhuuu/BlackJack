@@ -8,7 +8,7 @@ function getDeck(){
        	count = 10;
       	if(values[j] === "A")
         count = 11;
-		var card = {value: values[j], suit: suits[i], count: count};
+		card = {value: values[j], suit: suits[i], count: count};
       	deck.push(card);
 		}
   	}
@@ -36,6 +36,14 @@ function dealDeck(){
 	dealerHand.push(shuffledDeck.shift());
   	playerHand.push(shuffledDeck.shift());
   	}
+    dealerHand.forEach(function(newCard){
+	newCard = document.createElement('img');
+	newCard.src = "./cardImgs/" + card.value + card.suit + ".jpg";
+	console.log(newCard);
+	document.querySelector(".dHand").appendChild(newCard);
+	});
+
+
 }
 
 
