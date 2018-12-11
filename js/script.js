@@ -4,16 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instance = M.Modal.getInstance(elems);
 
+    function placeBet(){
 
+    };
 
+    getDeck();
 
+    shuffle(deck);
 
+    dealDeck();
 
-
-
-
-
-
+    resetDeck();
 
 
 

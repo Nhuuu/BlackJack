@@ -28,6 +28,14 @@ body {
 	overflow-y: hidden;
 }
 
+#footer {
+	background-color: #093010;
+}
+
+.btn-flat{
+	color: white;
+}
+
 .gameBoard {
 	margin-top: 30px;
 	height: 550px;
@@ -39,11 +47,17 @@ body {
 }
 
 .dealer {
-	margin-top: 20px;
 	background-color: blue;
-	height: 200px;
+	height: 220px;
+	padding: 0;
+	position: relative;
 }
 
+.scores {
+	font-size: 15px;
+	padding: 0;
+	margin: 0;
+}
 
 .msg {
 	height: 50px;
@@ -52,12 +66,20 @@ body {
 }
 
 .player {
-	background-color: orange;
-	height: 225px;
+	background-color: blue;
+	height: 220px;
+	padding: 0;
+	position: relative;
 }
 
 .actionBtns {
 	font-size: 20px;
-	padding: 10px;
 	text-align: center;
+	margin: 0 auto;
+}
+
+.cardsInPlay {
+	height: 150px;
+	width: 100px;
+	position: absolute;
 }
