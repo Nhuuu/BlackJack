@@ -1,6 +1,9 @@
 body {
 	background-color: #1B5432;
-	text-align: center;
+}
+
+.gameRules {
+	font-size: 16px;
 }
 
 .nav-wrapper {
@@ -10,41 +13,51 @@ body {
 
 .left {
 	float: left !important;
+	padding-left: 20px;
 }
 
 .columns{
 	text-align: justify;
-	line-height: 15px;
+	line-height: 18px;
+	font-size: 12px;
 }
 
 .modal{
 	background-color: #093010;
 	width: 100%;
+	overflow-y: hidden;
 }
 
 .gameBoard {
-	margin: 50px;
+	margin-top: 30px;
 	height: 550px;
-	width: 500px;
 	background-color: yellow;
-	display: inline-block;
+}
+
+.gameHeaders {
+	font-size: 20px;
 }
 
 .dealer {
+	margin-top: 20px;
 	background-color: blue;
 	height: 200px;
 }
 
+
 .msg {
 	height: 50px;
 	background-color: red;
+	text-align: center;
 }
 
 .player {
 	background-color: orange;
-	height: 250px;
+	height: 225px;
 }
 
 .actionBtns {
-	height: 50px;
+	font-size: 20px;
+	padding: 10px;
+	text-align: center;
 }
