@@ -1,6 +1,13 @@
-console.log("what's your move?");
 
+function placeBet(){
+
+
+};
+
+	document.getElementById("deal").addEventListener("click", dealDeck());
 function hit(){
+
+
 
 };
 

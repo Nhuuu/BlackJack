@@ -8,11 +8,13 @@ function getDeck(){
        	count = 10;
       	if(values[j] === "A")
         count = 11;
-		card = {value: values[j], suit: suits[i], count: count};
+		card = {values: values[j], suits: suits[i], count: count};
       	deck.push(card);
 		}
   	}
 }
+
+getDeck();
 
 // Shuffle the deck, used the Fisher-Yates technique
 function shuffle(deck){
@@ -28,31 +30,34 @@ function shuffle(deck){
   	} return shuffledDeck;
 }
 
+shuffle(deck);
+
 // deal two cards to each 
 function dealDeck(){
-	dealerHand = [];
-	playerHand = [];
   	for (var i = 0; i < 2; i++){
-	dealerHand.push(shuffledDeck.shift());
-  	playerHand.push(shuffledDeck.shift());
+		dealerHand.push(shuffledDeck.shift());
+	  	playerHand.push(shuffledDeck.shift());
   	}
-    dealerHand.forEach(function(newCard){
-	newCard = document.createElement('img');
-	newCard.src = "./cardImgs/" + card.value + card.suit + ".jpg";
-	console.log(newCard);
-	document.querySelector(".dHand").appendChild(newCard);
+    dealerHand.forEach(function(card){
+		dCard = document.createElement("img");
+		dCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
+		document.querySelector(".dHand").appendChild(dCard);
 	});
-
-
+	playerHand.forEach(function(card){
+		pCard = document.createElement("img");
+		pCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
+		document.querySelector(".pHand").appendChild(pCard);
+	});
 }
 
+dealDeck();
 
 // put the cards that were dealt back into the deck to be shuffled for the next play
 function resetDeck(){
   	for (var i = 0; i < 2; i++){
   	shuffledDeck.push(dealerHand.pop());
   	shuffledDeck.push(playerHand.pop());
-  	}
+  	};
 }
 
 

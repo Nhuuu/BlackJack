@@ -4,18 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instance = M.Modal.getInstance(elems);
 
-    function placeBet(){
+	document.getElementById("deal").addEventListener("click", dealDeck());
+    // function placeBet(){
 
-    };
+    // };
 
-    getDeck();
+    // getDeck();
 
-    shuffle(deck);
+    // shuffle(deck);
 
 
-    dealDeck();
+    // dealDeck();
 
-    console.log(dealerHand);
+    // console.log(dealerHand);
 
     // This is where I will need to tie the dealt cards to create an element to hold the cards.
 
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    resetDeck();
+    // resetDeck();
 
 
 
