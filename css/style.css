@@ -1,6 +1,6 @@
 body {
 	background-color: #1B5432;
-	/*text-align: center;*/
+	text-align: center;
 }
 
 .nav-wrapper {
@@ -8,11 +8,43 @@ body {
 	color: white;
 }
 
-/*.gameBoard {
+.left {
+	float: left !important;
+}
+
+.columns{
+	text-align: justify;
+	line-height: 15px;
+}
+
+.modal{
+	background-color: #093010;
+	width: 100%;
+}
+
+.gameBoard {
 	margin: 50px;
 	height: 550px;
 	width: 500px;
 	background-color: yellow;
-	/*display: inline-block;*/
+	display: inline-block;
 }
-*/
+
+.dealer {
+	background-color: blue;
+	height: 200px;
+}
+
+.msg {
+	height: 50px;
+	background-color: red;
+}
+
+.player {
+	background-color: orange;
+	height: 250px;
+}
+
+.actionBtns {
+	height: 50px;
+}
