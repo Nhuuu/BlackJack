@@ -32,25 +32,48 @@ function shuffle(deck){
 
 shuffle(deck);
 
-// deal two cards to each 
-function dealDeck(){
-  	for (var i = 0; i < 2; i++){
+// add a card
+function cardToDealer(){
 		dealerHand.push(shuffledDeck.shift());
-	  	playerHand.push(shuffledDeck.shift());
-  	}
-    dealerHand.forEach(function(card){
-		dCard = document.createElement("img");
-		dCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
-		document.querySelector(".dHand").appendChild(dCard);
-	});
-	playerHand.forEach(function(card){
-		pCard = document.createElement("img");
-		pCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
-		document.querySelector(".pHand").appendChild(pCard);
-	});
+		dealerHand.forEach(function(card){
+			dCard = document.createElement("img");
+			dCard.src = "./cardImgs/" + card.values + card.suits + ".jpg"
+			document.querySelector(".dHand").appendChild(dCard)
+		});
+	}
+
+function cardToPlayer(){
+		playerHand.push(shuffledDeck.shift());
+		playerHand.forEach(function(card){
+			pCard = document.createElement("img");
+			pCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
+			document.querySelector(".pHand").appendChild(pCard);
+		});
+	}
+
+
+function dealDeck(){
+	// for (var i = 0; i < 2; i++){
+	 	cardToPlayer();
+	// };
+	cardToDealer();
+	dBack = document.createElement("img");
+	dBack.src = "./cardImgs/cardback.jpg";
+	document.querySelector(".dHand").appendChild(dBack);
+	dBack = null; //idk if this works yet, go to line 79	
 }
 
-dealDeck();
+
+
+// flip the dealer's card after player is done with actions. //remove back img and replace with random card.
+// function flipCard(){
+// 	document.getElementById("dHand").parentNode.removeChild("dBack");
+// 	dealerHand.push(shuffledDeck.shift());
+// 	dCard2 = document.createElement("img");
+// 	dCard2.src = "./cardImgs/" + dealerHand[0].values + dealerHand[0].suits + ".jpg";
+// }
+
+// flipCard();
 
 // put the cards that were dealt back into the deck to be shuffled for the next play
 function resetDeck(){
@@ -60,11 +83,33 @@ function resetDeck(){
   	};
 }
 
+resetDeck();
+
+// function countScore(){
+// 	for(var i = 0; i < playerHand.length; i++){
+// 		pScore = sum + player.count[i];
+// 	}
+
+// } 
+
+
+
+// 	document.getElementById("playerScore").innerText = "Count: " + (playerHand[0].count += playerHand[1].count);
+// 	if(dealerHand.count != null){ //idk if this works yet, go to line 44
+// 		dScore = document.getElementById("dealerScore").innerText = "Count: " + (dealerHand[0].count += dealerHand[1].count);
+// 	} else {
+// 		dScore = document.getElementById("dealerScore").innerText = "Count: " + dealerHand[0].count;
+// 	}
+// }
+
+// countScore();
 
 
 
 
 
+// function check(){
 
+// }
 
 

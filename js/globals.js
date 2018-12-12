@@ -9,3 +9,5 @@ var deck = [];
 var dealerHand = [];
 var playerHand = [];
 var shuffledDeck;
+var dScore;
+var pScore;

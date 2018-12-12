@@ -43,30 +43,27 @@
     <div class="container" id=""gameBoard"">
     	<div class="row gameHeaders dealer">
     		<h4>Dealer</h4>
-    		<h6 class="scores" id="dealerScore">Score: </h6>
-    		<div class="dHand"></div>
+    		<h6 class="scores" id="dealerScore"></h6>
     		<div class="dHand"></div>
 		</div>
     	<div class="row msg">"Place your Bet/____ won!"</div>
 	   	<div class="row gameHeaders player">
    			<h4>Player</h4>
-   			<h6 class="scores" id="playerScore">Score: </h6>
+   			<h6 class="scores" id="playerScore"></h6>
    			<div class="pHand"></div>
-   			<div class="pHand"></div>
-   			</div>
 	   	</div>
 	   	<div class="row actionBtns">
-   			<button class="action">Deal</button>
-  			<button class="action">Hit</button>
-  			<button class="action">Stand</button>
-  			<button class="action">Double-Down</button>
-  			<button class="action">Split</button>
+   			<button class="action" id="deal">Deal</button>
+  			<button class="action" id="hit">Hit</button>
+  			<button class="action" id="stand">Stand</button>
+  			<button class="action" id="double">Double-Down</button>
+  			<button class="action" id="split">Split</button>
 	   	</div>
   	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/globals.js"></script>
-	<script type="text/javascript" src="js/actions.js"></script>
 	<script type="text/javascript" src="js/deck.js"></script>
+	<script type="text/javascript" src="js/actions.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
