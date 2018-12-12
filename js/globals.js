@@ -6,6 +6,7 @@ const dealer = {
 	selector: '.dHand', // for querySelector
 	scoreClass: '.dScore',
 	score: 0,
+	name: "Dealer"
 };
 const player = {
 	hand: [],
@@ -13,6 +14,7 @@ const player = {
 	scoreClass: '.pScore',
 	score: 0,
 	money: 500,
+	name: "Player"
 };
 const hitPlayer = () => hitMe(player);
 const hitDealer = () => hitMe(dealer);
@@ -22,4 +24,5 @@ const hitDealer = () => hitMe(dealer);
 var card = {};
 var deck = [];
 var shuffledDeck;
+var bCard;
 

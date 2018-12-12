@@ -34,12 +34,12 @@ shuffle(deck);
 
 
 function backCard(){
-	// const addCard = ;
 	dealer.hand.push(shuffledDeck.shift());
-	const card = document.createElement("img");
-	card.src = "./cardImgs/cardback.jpg";
-	document.querySelector(dealer.selector).appendChild(card);
+	bCard = document.createElement("img");
+	bCard.src = "./cardImgs/cardback.jpg";
+	document.querySelector(dealer.selector).appendChild(bCard);
 }
+
 
 function dealDeck(){
 	hitMe(player);
@@ -48,27 +48,22 @@ function dealDeck(){
 	backCard();
 }
 
-console.log(dealer.hand);
-console.log(player.hand);
-
 // put the cards that were dealt back into the deck to be shuffled for the next play
 function resetDeck(){
   	for (var i = 0; i < 2; i++){
   	shuffledDeck.push(dealer.hand.pop());
   	shuffledDeck.push(player.hand.pop());
-  	};
+  	shuffleDeck(); //test this
+  };
 }
 
 function countScore(target){
-
+	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){
-		var totalCount = target.hand[i++].count + target.hand[i++].count;
+		target.score = target.score + target.hand[i].count;
 	}
-	document.querySelector(target.scoreClass).innerText = "Count: " + totalCount;
+	document.querySelector(target.scoreClass).innerText = "Count: " + target.score;
 }
 
-// dealDeck();
-// countScore(dealer);
-// countScore(player);
 
 
