@@ -33,39 +33,23 @@ function shuffle(deck){
 shuffle(deck);
 
 
-function hitMe(target){
-	const addCard = shuffledDeck.shift();
-	target.hand.push(addCard);
+function backCard(){
+	// const addCard = ;
+	dealer.hand.push(shuffledDeck.shift());
 	const card = document.createElement("img");
-	card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
-	document.querySelector(target.selector).appendChild(card);
+	card.src = "./cardImgs/cardback.jpg";
+	document.querySelector(dealer.selector).appendChild(card);
 }
-
-const hitPlayer = () => hitMe(player);
-const hitDealer = () => hitMe(dealer);
-
 
 function dealDeck(){
 	hitMe(player);
 	hitMe(player);
 	hitMe(dealer);
-	dBack = document.createElement("img");
-	dBack.src = "./cardImgs/cardback.jpg";
-	document.querySelector(".dHand").appendChild(dBack);
-	dBack = null; //idk if this works yet, go to line 79	
+	backCard();
 }
 
-// dealDeck();
-
-// flip the dealer's card after player is done with actions. //remove back img and replace with random card.
-// function flipCard(){
-// 	document.getElementById("dHand").parentNode.removeChild("dBack");
-// 	dealerHand.push(shuffledDeck.shift());
-// 	dCard2 = document.createElement("img");
-// 	dCard2.src = "./cardImgs/" + dealerHand[0].values + dealerHand[0].suits + ".jpg";
-// }
-
-// flipCard();
+console.log(dealer.hand);
+console.log(player.hand);
 
 // put the cards that were dealt back into the deck to be shuffled for the next play
 function resetDeck(){
@@ -75,33 +59,16 @@ function resetDeck(){
   	};
 }
 
-// resetDeck();
+function countScore(target){
 
-// function countScore(){
-// 	for(var i = 0; i < playerHand.length; i++){
-// 		pScore = sum + player.count[i];
-// 	}
+	for (var i = 0; i < target.hand.length; i++){
+		var totalCount = target.hand[i++].count + target.hand[i++].count;
+	}
+	document.querySelector(target.scoreClass).innerText = "Count: " + totalCount;
+}
 
-// } 
-
-
-
-// 	document.getElementById("playerScore").innerText = "Count: " + (playerHand[0].count += playerHand[1].count);
-// 	if(dealerHand.count != null){ //idk if this works yet, go to line 44
-// 		dScore = document.getElementById("dealerScore").innerText = "Count: " + (dealerHand[0].count += dealerHand[1].count);
-// 	} else {
-// 		dScore = document.getElementById("dealerScore").innerText = "Count: " + dealerHand[0].count;
-// 	}
-// }
-
-// countScore();
-
-
-
-
-
-// function check(){
-
-// }
+// dealDeck();
+// countScore(dealer);
+// countScore(player);
 
 

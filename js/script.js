@@ -4,12 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var instance = M.Modal.getInstance(elems);
 
-	// document.getElementById("deal").addEventListener("click", dealDeck());
-    function placeBet(){
+    // function placeBet(){
+
+	document.getElementById("deal").addEventListener("click", function(){
+		dealDeck();
+		countScore(dealer);
+		countScore(player);
+	});
+	document.getElementById("hit").addEventListener("click", hitPlayer);
+// document.getElementById("stand").addEventListener("click", dealDeck);
+// document.getElementById("double").addEventListener("click", dealDeck);
+// document.getElementById("split").addEventListener("click", dealDeck);
 
 
-
-    };
+    // };
 
     // getDeck();
 
@@ -20,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // resetDeck();
 
 
+// function playAgain(){
+
+// }
 
 
 

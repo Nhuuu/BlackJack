@@ -1,20 +1,22 @@
 
+
 function placeBet(){
 
 };
 
+function hitMe(target){
+	const addCard = shuffledDeck.shift();
+	target.hand.push(addCard);
+	const card = document.createElement("img");
+	card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
+	document.querySelector(target.selector).appendChild(card);
+}
 
-
-document.getElementById("deal").addEventListener("click", dealDeck);
-document.getElementById("hit").addEventListener("click", hitPlayer);
-// document.getElementById("stand").addEventListener("click", dealDeck);
-// document.getElementById("double").addEventListener("click", dealDeck);
-// document.getElementById("split").addEventListener("click", dealDeck);
-
-
-function stay(){
-
-};
+function stand(){
+	for( var i = 0; i < 17; dScore++){
+	hitMe(dealer);
+	};
+}
 
 function doubleDown(){
 
