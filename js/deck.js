@@ -32,38 +32,30 @@ function shuffle(deck){
 
 shuffle(deck);
 
-// add a card
-function cardToDealer(){
-		dealerHand.push(shuffledDeck.shift());
-		dealerHand.forEach(function(card){
-			dCard = document.createElement("img");
-			dCard.src = "./cardImgs/" + card.values + card.suits + ".jpg"
-			document.querySelector(".dHand").appendChild(dCard)
-		});
-	}
 
-function cardToPlayer(){
-		playerHand.push(shuffledDeck.shift());
-		playerHand.forEach(function(card){
-			pCard = document.createElement("img");
-			pCard.src = "./cardImgs/" + card.values + card.suits + ".jpg";
-			document.querySelector(".pHand").appendChild(pCard);
-		});
-	}
+function hitMe(target){
+	const addCard = shuffledDeck.shift();
+	target.hand.push(addCard);
+	const card = document.createElement("img");
+	card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
+	document.querySelector(target.selector).appendChild(card);
+}
+
+const hitPlayer = () => hitMe(player);
+const hitDealer = () => hitMe(dealer);
 
 
 function dealDeck(){
-	// for (var i = 0; i < 2; i++){
-	 	cardToPlayer();
-	// };
-	cardToDealer();
+	hitMe(player);
+	hitMe(player);
+	hitMe(dealer);
 	dBack = document.createElement("img");
 	dBack.src = "./cardImgs/cardback.jpg";
 	document.querySelector(".dHand").appendChild(dBack);
 	dBack = null; //idk if this works yet, go to line 79	
 }
 
-
+// dealDeck();
 
 // flip the dealer's card after player is done with actions. //remove back img and replace with random card.
 // function flipCard(){
@@ -78,12 +70,12 @@ function dealDeck(){
 // put the cards that were dealt back into the deck to be shuffled for the next play
 function resetDeck(){
   	for (var i = 0; i < 2; i++){
-  	shuffledDeck.push(dealerHand.pop());
-  	shuffledDeck.push(playerHand.pop());
+  	shuffledDeck.push(dealer.hand.pop());
+  	shuffledDeck.push(player.hand.pop());
   	};
 }
 
-resetDeck();
+// resetDeck();
 
 // function countScore(){
 // 	for(var i = 0; i < playerHand.length; i++){
