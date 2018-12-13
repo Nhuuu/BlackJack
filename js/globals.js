@@ -32,7 +32,6 @@ var deck = [];
 var shuffledDeck;
 var bCard;
 var wager = [];
-var wagerTotal;
 
 
 

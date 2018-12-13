@@ -19,34 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Stores every click into the wager array.
-function addToBet(){
+function placeWager(){
 	document.getElementById("chip-10").addEventListener("click", function(){
 		wager.push(chipTen);
+		updateWager();
 	});
 	document.getElementById("chip-25").addEventListener("click", function(){
 		wager.push(chipTwentyFive);
+		updateWager();
 	});
 	document.getElementById("chip-50").addEventListener("click", function(){
 		wager.push(chipFifty);
+		updateWager();
 	});
-	document.getElementById("chip-100").addEventListener("click", function(){
+	document.getElementById("chip-100").addEventListener("click", function(e){
+		e.preventDefault();
 		wager.push(chipHundred);
+		updateWager();
 	});		
 }
 
-console.log(wager);
+placeWager();
 
-// Need to add elements of the wager array.
-var wagerTotal;
-function placeBet(){
-	addToBet();
-	document.getElementById("betAmt").innerText = wagerTotal;
-	for (var i = 0; i <= wager.length; i++){
-		wagerTotal = wagerTotal + wager[i];	
-	};
+const sum = (a, b) => a + b;
+
+function updateWager() {
+	document.getElementById('betAmt'). innerText = wager.reduce(sum);
 }
 
-placeBet();
+
 
 
 // document.getElementById("double").addEventListener("click", dealDeck);
