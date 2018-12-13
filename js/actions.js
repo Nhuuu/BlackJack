@@ -1,3 +1,27 @@
+// For every chip clicked, it pushes the value to the wager array.
+function placeWager(){
+	var allChips = document.querySelectorAll(".chips");
+	for(var i = 0; i < allChips.length; i++){
+		allChips[i].addEventListener('click', function(e){
+			e.preventDefault();
+			wager.push(this.value);
+			wagerTotal = wager.reduce(sum);
+			balanceTotal = stackLimit - wager.reduce(sum);
+			betLimit();
+		});
+	};
+};
+
+
+function betLimit(){
+	if(wagerTotal <= stackLimit){
+		document.getElementById("betAmt").innerText = wagerTotal;
+		document.getElementById("balance").innerText = balanceTotal;
+	};
+}
+
+
+
 function hitMe(target){
 	if(target.score > 21){
 		document.querySelector(".msg").innerText = target.name + " BUST!";
@@ -39,8 +63,6 @@ function checkWin(){
 		document.querySelector(".msg").innerText = "DEALER WINS!";
 	}
 }
-
-
 
 
 

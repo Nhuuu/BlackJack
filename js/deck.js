@@ -1,4 +1,3 @@
-
 // Create deck and assign count values to each card
 function getDeck(){
 	for(var i = 0; i < suits.length; i++){
@@ -14,7 +13,6 @@ function getDeck(){
   	}
 }
 
-getDeck();
 
 // Shuffle the deck, used the Fisher-Yates technique
 function shuffle(deck){
@@ -30,7 +28,6 @@ function shuffle(deck){
   	} return shuffledDeck;
 }
 
-shuffle(deck);
 
 // Populate the back of the card image on initial deal.
 function backCard(){
