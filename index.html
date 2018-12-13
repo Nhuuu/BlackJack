@@ -40,18 +40,42 @@
 	      </ul>
 	    </div>
   	</nav>
-    <div class="container" id=""gameBoard"">
-    	<div class="row gameHeaders dealer">
-    		<h4>Dealer</h4>
+    <div class="container">
+    	<div class="dealer">
+    		<h5>Dealer</h5>
     		<h6 class="scores dScore"></h6>
     		<div class="dHand"></div>
 		</div>
-    	<div class="row msg">BlackJack</div>
-	   	<div class="row gameHeaders player">
-   			<h4>Player</h4>
+    	<div class="msg"></div>
+	   	<div class="player">
+   			<h5>Player</h5>
    			<h6 class="scores pScore"></h6>
    			<div class="pHand"></div>
 	   	</div>
+	   	<div id="wagerOptions">
+  			<a href="#" id="chip-10">
+  				<img src="#" class="wager clickable">
+  			</a>
+			<a href="#" id="chip-25">
+  				<img src="#" class="wager clickable">
+  			</a>
+  			<a href="#" id="chip-50">
+  				<img src="#" class="wager clickable">
+  			</a>
+			<a href="#" id="chip-100">
+  				<img src="#" class="wager clickable">
+  			</a>
+  		<div class="bet">
+  			<span>Place Bet!</span>
+  			<a href="#" id="stack">
+  				<img src="#" class="wager clickable">
+  			</a>
+  			<span>Balance</span>
+  			<a href="#" id="bet">
+  				<img src="#" class="wager clickable">
+  			</a>
+  		</div>
+  		</div>
 	   	<div class="row actionBtns">
    			<button class="action" id="deal">Deal</button>
   			<button class="action" id="hit">Hit</button>

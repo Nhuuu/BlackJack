@@ -1,5 +1,7 @@
 body {
 	background-color: #1B5432;
+	display: flex;
+	flex-flow: row wrap;
 }
 
 .gameRules {
@@ -36,21 +38,24 @@ body {
 	color: white;
 }
 
-.gameBoard {
-	margin-top: 30px;
-	height: 550px;
-	background-color: yellow;
+
+.wager {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
 }
 
-.gameHeaders {
-	font-size: 20px;
+.container {
+	text-align: center;
+	max-width: 600px;
 }
 
-.dealer {
+
+.dealer, .player {
 	background-color: blue;
-	height: 220px;
+	height: 180px;
 	padding: 0;
-	position: relative;
+
 }
 
 .scores {
@@ -60,22 +65,15 @@ body {
 }
 
 .msg {
-	height: 50px;
+	height: 60px;
 	background-color: red;
-	text-align: center;
+	color: lightgreen;
 }
 
-.player {
-	background-color: blue;
-	height: 220px;
-	padding: 0;
-	position: relative;
-}
 
 .actionBtns {
+	background-color: black;
 	font-size: 20px;
-	text-align: center;
-	margin: 0 auto;
 }
 
 img {
@@ -83,3 +81,6 @@ img {
 	width: 80px;
 	margin: 8px;
 }
+
+
+

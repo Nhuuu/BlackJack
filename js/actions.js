@@ -4,22 +4,23 @@ function placeBet(){
 };
 
 
+// Need to adjust to not be able to hit until dealt.
 function hitMe(target){
+	
+
+
 	if(target.score > 21){
 		document.querySelector(".msg").innerText = target.name + " bust!";
-	} else if(target.score === 21){
-		document.querySelector(".msg").innerText = target.name + " has BlackJack!"; //this doesn't work
 	} else {
-	const addCard = shuffledDeck.shift();
-	target.hand.push(addCard);
-	const card = document.createElement("img");
-	card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
-	document.querySelector(target.selector).appendChild(card);
-	countScore(target);
-	bust(target);
+		const addCard = shuffledDeck.shift();
+		target.hand.push(addCard);
+		const card = document.createElement("img");
+		card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
+		document.querySelector(target.selector).appendChild(card);
+		countScore(target);
+		bust(target);
 	};
 }
-
 
 function stand(){
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
@@ -35,6 +36,11 @@ function dealerLimits(){
 	};
 }
 
+function bust(target){
+	if(target.score > 21){
+		document.querySelector(".msg").innerText = target.name + " bust!";
+	};
+}
 
 function checkWin(){
 	if(player.score > dealer.score && player.score < 21){
