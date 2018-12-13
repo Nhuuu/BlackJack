@@ -1,3 +1,10 @@
+function betLimit(){
+	if(wagerTotal <= stackLimit){
+		document.getElementById("betAmt").innerText = wagerTotal;
+		document.getElementById("balance").innerText = balanceTotal;
+	};
+}
+
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
 	var allChips = document.querySelectorAll(".chips");
@@ -11,14 +18,6 @@ function placeWager(){
 		});
 	};
 };
-
-
-function betLimit(){
-	if(wagerTotal <= stackLimit){
-		document.getElementById("betAmt").innerText = wagerTotal;
-		document.getElementById("balance").innerText = balanceTotal;
-	};
-}
 
 
 
@@ -40,6 +39,7 @@ function stand(){
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
 	countScore(dealer);
 	dealerLimits();
+	checkWin();
 }
 
 function dealerLimits(){
@@ -57,13 +57,13 @@ function bust(target){
 }
 
 function checkWin(){
+	bust(player);
 	if(player.score > dealer.score && player.score < 21){
 		document.querySelector(".msg").innerText = "PlAYER WINS!";
 	} else if(dealer.score > player.score && dealer.score < 21){
 		document.querySelector(".msg").innerText = "DEALER WINS!";
 	}
 }
-
 
 
 
@@ -76,11 +76,6 @@ function split(){
 }
 
 
-function playGame(){
-	// clear board
-	resetDeck();
-
-}
 
 
 

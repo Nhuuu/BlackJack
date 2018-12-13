@@ -1,5 +1,3 @@
-// console.log('')
-
 document.addEventListener('DOMContentLoaded', function() {
 	var elems = document.querySelectorAll('.modal');
 	var instances = M.Modal.init(elems);
@@ -29,21 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Stand button
 	document.getElementById("stand").addEventListener("click", stand);
 
-
-	// Betting logic
-
-
-	// }
-
-	
-
-
-
-
-
-
-
-
+	// Reset Game
+	document.querySelector(".again").addEventListener("click", resetGame);
 
 
 	// document.getElementById("double").addEventListener("click", dealDeck);

@@ -47,13 +47,11 @@ function dealDeck(){
 
 // Put the cards that were dealt back into the deck to be shuffledDeck for the next play.
 function resetDeck(){
-  	for (var i = 0; i < 2; i++){
+	for (var i = 0; i < 2; i++){
   	shuffledDeck.push(dealer.hand.pop());
   	shuffledDeck.push(player.hand.pop());
-  	shuffleDeck();
-  };
-  return;
-}
+   }
+} 
 
 
 // Count each player's score.
@@ -65,5 +63,16 @@ function countScore(target){
 	document.querySelector(target.scoreClass).innerText = "COUNT: " + target.score;
 }
 
+
+// Clear the board
+function resetGame(){
+  while (player.hand != ""){
+    var pHand = document.querySelector(".pHand")
+    pHand.removeChild(player.hand.childNodes[0]);
+    // document.querySelector(".dHand").removeChild(dealer.hand.childNodes[0]);
+    resetDeck();
+    }
+  shuffle(deck);
+}
 
 
