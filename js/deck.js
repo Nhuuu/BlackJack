@@ -65,7 +65,7 @@ function countScore(target){
 	for (var i = 0; i < target.hand.length; i++){
 		target.score = target.score + target.hand[i].count;
 	}
-	document.querySelector(target.scoreClass).innerText = "Count: " + target.score;
+	document.querySelector(target.scoreClass).innerText = "COUNT: " + target.score;
 }
 
 

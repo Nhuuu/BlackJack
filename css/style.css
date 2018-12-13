@@ -1,5 +1,5 @@
 body {
-	background-color: #1B5432;
+	background-image
 	display: flex;
 	flex-flow: row wrap;
 }
@@ -48,13 +48,16 @@ body {
 .container {
 	text-align: center;
 	max-width: 600px;
+	background-color: #194922;
+	margin-top: 20px;
+	border-radius: 100px;
 }
 
 
 .dealer, .player {
-	background-color: blue;
 	height: 180px;
 	padding: 0;
+	color: white;
 
 }
 
@@ -65,14 +68,14 @@ body {
 }
 
 .msg {
-	height: 60px;
-	background-color: red;
+	height: 40px;
 	color: lightgreen;
+	font-size: 30px;
 }
 
 
 .actionBtns {
-	background-color: black;
+/*	background-color: black;*/
 	font-size: 20px;
 }
 
@@ -82,5 +85,12 @@ img {
 	margin: 8px;
 }
 
+#betAmt, #balance {
+	font-size: 30px;
+	margin: 0 10px;
+}
 
-
+.amounts {
+	color: white;
+	font-size: 30px;
+}

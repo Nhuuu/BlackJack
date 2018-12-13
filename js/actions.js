@@ -1,16 +1,6 @@
-
-function placeBet(){
-
-};
-
-
-// Need to adjust to not be able to hit until dealt.
 function hitMe(target){
-	
-
-
 	if(target.score > 21){
-		document.querySelector(".msg").innerText = target.name + " bust!";
+		document.querySelector(".msg").innerText = target.name + " BUST!";
 	} else {
 		const addCard = shuffledDeck.shift();
 		target.hand.push(addCard);
@@ -38,15 +28,15 @@ function dealerLimits(){
 
 function bust(target){
 	if(target.score > 21){
-		document.querySelector(".msg").innerText = target.name + " bust!";
+		document.querySelector(".msg").innerText = target.name + " BUST!";
 	};
 }
 
 function checkWin(){
 	if(player.score > dealer.score && player.score < 21){
-		document.querySelector(".msg").innerText = "Player Wins!";
+		document.querySelector(".msg").innerText = "PlAYER WINS!";
 	} else if(dealer.score > player.score && dealer.score < 21){
-		document.querySelector(".msg").innerText = "Dealer wins!";
+		document.querySelector(".msg").innerText = "DEALER WINS!";
 	}
 }
 
