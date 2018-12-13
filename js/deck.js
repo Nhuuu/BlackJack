@@ -10,7 +10,7 @@ function getDeck(){
         count = 11;
 		card = {values: values[j], suits: suits[i], count: count};
       	deck.push(card);
-		}
+		};
   	}
 }
 
@@ -32,7 +32,7 @@ function shuffle(deck){
 
 shuffle(deck);
 
-
+// Populate the back of the card image on initial deal.
 function backCard(){
 	dealer.hand.push(shuffledDeck.shift());
 	bCard = document.createElement("img");
@@ -40,7 +40,7 @@ function backCard(){
 	document.querySelector(dealer.selector).appendChild(bCard);
 }
 
-
+// Deal two cards to each player.
 function dealDeck(){
 	hitMe(player);
 	hitMe(player);
@@ -48,15 +48,18 @@ function dealDeck(){
 	backCard();
 }
 
-// put the cards that were dealt back into the deck to be shuffled for the next play
+// Put the cards that were dealt back into the deck to be shuffledDeck for the next play.
 function resetDeck(){
   	for (var i = 0; i < 2; i++){
   	shuffledDeck.push(dealer.hand.pop());
   	shuffledDeck.push(player.hand.pop());
-  	shuffleDeck(); //test this
+  	shuffleDeck();
   };
+  return;
 }
 
+
+// Count each player's score.
 function countScore(target){
 	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){

@@ -6,16 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Need to set this to where it can't be pressed until after Place Bet.
 	document.getElementById("deal").addEventListener("click", function(){
-		// if(player.hand === []){
 		dealDeck();
 		countScore(player);
-		// blackJack();
-		// }
 	});
 
 // Need to set this to where you can't keep hitting after you bust or get 21.
 	document.getElementById("hit").addEventListener("click", function(){
-		hitPlayer()
+		hitPlayer();
 	});
 
 	document.getElementById("stand").addEventListener("click", stand);
