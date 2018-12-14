@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	var elems = document.querySelectorAll('.modal');
 	var instances = M.Modal.init(elems);
 	var instance = M.Modal.getInstance(elems);
-	
 
 	getDeck();
 
 	shuffle(deck);
-
 
 
 	// Deal button 
@@ -15,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		if(wager != "" && player.score === 0){
 		dealDeck();
 		countScore(player);
-		start = false;
 		};
 	});
 
@@ -29,14 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Stand button
 	document.getElementById("stand").addEventListener("click", stand);
 
+	// Double down
+	document.getElementById("double").addEventListener("click", function(){
+		document.getElementById("betAmt").innerText = wagerTotal * 2;
+		document.getElementById("balance").innerText = currentStack - wagerTotal;
+	});
+
 	// Need to restart the game
-	// document.querySelector(".again").addEventListener("click", nextHand);
-	// Reset Game
 	// document.querySelector(".again").addEventListener("click", resetGame);
-
-
-	// document.getElementById("double").addEventListener("click", dealDeck);
-	// document.getElementById("split").addEventListener("click", dealDeck);
-
-
+	
  });

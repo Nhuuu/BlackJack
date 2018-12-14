@@ -8,23 +8,22 @@ function betLimit(){
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
 	console.log(start)
-		var allChips = document.querySelectorAll(".chips");
-		for(var i = 0; i < allChips.length; i++){
-			allChips[i].addEventListener('click', function(e){
-				e.preventDefault();
-				if(start){
-					wager.push(this.value);
-					wagerTotal = wager.reduce(sum);
-					currentStack = initialStack - wagerTotal;
-					betLimit();
-				}
-			});
-		};
+	var allChips = document.querySelectorAll(".chips");
+	for(var i = 0; i < allChips.length; i++){
+		allChips[i].addEventListener('click', function(e){
+			e.preventDefault();
+			if(start){
+				wager.push(this.value);
+				wagerTotal = wager.reduce(sum);
+				currentStack = initialStack - wagerTotal;
+				betLimit();
+			}
+		});
+	};
 };
 
 
 placeWager();
-
 
 
 function hitMe(target){
@@ -60,28 +59,27 @@ function dealerLimits(){
 function checkBust(target){
 	if(target.score > 21){
 		document.querySelector(".msg").innerText = target.name + " BUST!";
-		setTimeout(nextHand, 3000);
+		setTimeout(nextHand, 5000);
 	}
 }
 
 function checkWin(){
 	if(player.score > dealer.score){
+		setTimeout(nextHand, 5000);
 		document.querySelector(".msg").innerText = "PLAYER WINS!";
-		document.getElementById("balance").innerText = currentStack + wagerTotal;
-		setTimeout(nextHand, 3000);
-		// dealDeck();
-	} else if(dealer.score > player.score){
+		document.getElementById("balance").innerText = currentStack + wagerTotal;	
+	} else if(player.score < dealer.score && dealer.score < 21){
+		setTimeout(nextHand, 5000);
 		document.querySelector(".msg").innerText = "DEALER WINS!";
-		document.getElementById("balance").innerText = currentStack;
-		setTimeout(nextHand, 3000);
-		// dealDeck();
-	} else if(dealer.score === player.score){
+	} else if(player.score === dealer.score){
+		setTimeout(nextHand, 5000);
 		document.querySelector(".msg").innerText = "DRAW! PLAY AGAIN!";
-		setTimeout(nextHand, 3000);
-		// dealDeck();
 	};
 }
 
+function doubleDown(){
+	var double = wagerTotal * 2;
+}
 
 
 

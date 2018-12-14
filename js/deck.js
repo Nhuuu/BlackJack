@@ -65,10 +65,13 @@ function nextHand(){
     dealt[i].remove();
     shuffledDeck.push(dealer.hand.pop());
     shuffledDeck.push(player.hand.pop());
+  }
     document.querySelector(player.scoreClass).innerText = "";
     document.querySelector(dealer.scoreClass).innerText = "";
     document.querySelector(".msg").innerText = "";
-  }
+    document.getElementById("betAmt").innerText = "";
+    document.getElementById("balance").innerText = currentStack;
+    start = true;
 }
 
 
