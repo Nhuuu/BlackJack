@@ -27,15 +27,15 @@ const hitDealer = () => hitMe(dealer);
 
 
 //Global 
-var stackLimit = 500;
+var initialStack = 500;
+var currentStack;
 var card = {};
 var deck = [];
 var shuffledDeck;
 var bCard;
 var wager = [];
 var wagerTotal;
-var balance = [];
-var balanceTotal;
+
 
 
 

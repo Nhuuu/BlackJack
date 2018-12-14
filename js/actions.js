@@ -1,7 +1,7 @@
 function betLimit(){
-	if(wagerTotal <= stackLimit){
+	if(wagerTotal <= currentStack){
 		document.getElementById("betAmt").innerText = wagerTotal;
-		document.getElementById("balance").innerText = balanceTotal;
+		document.getElementById("balance").innerText = currentStack;
 	};
 }
 
@@ -13,32 +13,35 @@ function placeWager(){
 			e.preventDefault();
 			wager.push(this.value);
 			wagerTotal = wager.reduce(sum);
-			balanceTotal = stackLimit - wager.reduce(sum);
+			currentStack = initialStack - wagerTotal;
 			betLimit();
 		});
 	};
 };
 
 
+placeWager();
+
 
 function hitMe(target){
-	if(target.score > 21){
-		document.querySelector(".msg").innerText = target.name + " BUST!";
-	} else {
+	if(target.score < 21){
 		const addCard = shuffledDeck.shift();
 		target.hand.push(addCard);
 		const card = document.createElement("img");
 		card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
+		card.classList.add("dealtCards");
 		document.querySelector(target.selector).appendChild(card);
 		countScore(target);
-		bust(target);
+		checkBust(player);
 	};
 }
+
 
 function stand(){
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
 	countScore(dealer);
 	dealerLimits();
+	checkBust(dealer);
 	checkWin();
 }
 
@@ -50,30 +53,28 @@ function dealerLimits(){
 	};
 }
 
-function bust(target){
+function checkBust(target){
 	if(target.score > 21){
 		document.querySelector(".msg").innerText = target.name + " BUST!";
-	};
-}
-
-function checkWin(){
-	bust(player);
-	if(player.score > dealer.score && player.score < 21){
-		document.querySelector(".msg").innerText = "PlAYER WINS!";
-	} else if(dealer.score > player.score && dealer.score < 21){
-		document.querySelector(".msg").innerText = "DEALER WINS!";
+		setTimeout(nextHand, 3000);
 	}
 }
 
-
-
-function doubleDown(){
-
-};
-
-function split(){
-
+function checkWin(){
+	if(player.score > dealer.score){
+		document.querySelector(".msg").innerText = "PLAYER WINS!";
+		document.getElementById("balance").innerText = currentStack + wagerTotal;
+		// setTimeout(nextHand, 3000);
+	} else if(dealer.score > player.score){
+		document.querySelector(".msg").innerText = "DEALER WINS!";
+		document.getElementById("balance").innerText = currentStack;
+		// setTimeout(nextHand, 3000);
+	} else if(dealer.score === player.score){
+		document.querySelector(".msg").innerText = "DRAW! PLAY AGAIN!";
+		// setTimeout(nextHand, 3000);
+	};
 }
+
 
 
 

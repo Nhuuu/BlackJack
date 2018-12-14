@@ -34,6 +34,7 @@ function backCard(){
 	dealer.hand.push(shuffledDeck.shift());
 	bCard = document.createElement("img");
 	bCard.src = "./cardImgs/cardback.jpg";
+  bCard.classList.add("dealtCards");
 	document.querySelector(dealer.selector).appendChild(bCard);
 }
 
@@ -45,13 +46,6 @@ function dealDeck(){
 	backCard();
 }
 
-// Put the cards that were dealt back into the deck to be shuffledDeck for the next play.
-function resetDeck(){
-	for (var i = 0; i < 2; i++){
-  	shuffledDeck.push(dealer.hand.pop());
-  	shuffledDeck.push(player.hand.pop());
-   }
-} 
 
 
 // Count each player's score.
@@ -64,15 +58,29 @@ function countScore(target){
 }
 
 
-// Clear the board
-function resetGame(){
-  while (player.hand != ""){
-    var pHand = document.querySelector(".pHand")
-    pHand.removeChild(player.hand.childNodes[0]);
-    // document.querySelector(".dHand").removeChild(dealer.hand.childNodes[0]);
-    resetDeck();
-    }
-  shuffle(deck);
+// Need to also remove cards and scoring and keep current stack
+function nextHand(){
+  var dealt = document.querySelectorAll(".dealtCards");
+  for (var i = 0; i < dealt.length; i++){
+    dealt[i].remove();
+    shuffledDeck.push(dealer.hand.pop());
+    shuffledDeck.push(player.hand.pop());
+  }
 }
+
+
+
+
+
+// // Clear the board, not yet working.
+// function resetGame(){
+//   while (player.hand != ""){
+//     var pHand = document.querySelector(".pHand")
+//     pHand.removeChild(player.hand.childNodes[0]);
+//     // document.querySelector(".dHand").removeChild(dealer.hand.childNodes[0]);
+//     resetDeck();
+//     }
+//   shuffle(deck);
+// }
 
 

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	shuffle(deck);
 
-	placeWager();
+
 
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Stand button
 	document.getElementById("stand").addEventListener("click", stand);
 
+	// Need to restart the game
+	document.querySelector(".again").addEventListener("click", nextHand);
 	// Reset Game
-	document.querySelector(".again").addEventListener("click", resetGame);
+	// document.querySelector(".again").addEventListener("click", resetGame);
 
 
 	// document.getElementById("double").addEventListener("click", dealDeck);
