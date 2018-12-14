@@ -53,14 +53,9 @@ function countScore(target){
   var aces = 0;
 	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){
-    // for (var j = 0; j < target.hand[i].values.length; j++){
-    //   if(target.hand[i].values[j] === "A"){
-    //     aces++;
-    //   }
-    // }
 		target.score = target.score + target.hand[i].count;
 	}
-	document.querySelector(target.scoreClass).innerText = "COUNT: " + target.score;
+	document.querySelector(target.scoreClass).innerText = "Count: " + target.score;
 }
 
 
@@ -74,20 +69,20 @@ function nextHand(){
   }
     document.querySelector(player.scoreClass).innerText = "";
     document.querySelector(dealer.scoreClass).innerText = "";
-    document.querySelector(".msg").innerText = "";
     document.getElementById("betAmt").innerText = "";
+    document.querySelector(".msg").innerText = "Place your Bet";
     wager = [];
     player.score = 0;
     dealer.score = 0;
-    // document.getElementById("balance").innerText = currentStack;
     start = true;
 }
 
 
 // Clear the board, not yet working.
 function resetGame(){
-
+  getDeck();
   shuffle(deck);
+  document.getElementById("balance").innerText = player.money;
 }
 
 

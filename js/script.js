@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
-		if(wager != ""){
+		if(wager != "" && player.score === 0){
+		document.querySelector(".msg").innerText = "Hit or Stand";
 		dealDeck();
 		countScore(player);
 		};
+		start = false;
 	});
 
 	// Hit button
@@ -36,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	// });
 
 	// Need to restart the game
-	// document.querySelector(".again").addEventListener("click", resetGame);
-	
+	document.querySelector(".again").addEventListener("click", function(){
+		if (player.money === 0) {
+		resetGame();
+ 		}
+ 	});
  });

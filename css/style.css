@@ -61,37 +61,35 @@ body {
 	height: 180px;
 	padding: 0;
 	color: white;
+	font-family: 'Charm', cursive;
 }
 
-h5, h6{
-	background-color: red;
+h5 {
 	width: 80px;
-	margin-left: 50px;
+	margin-left: 40px;
+	margin-top: 25px;
 }
 
 .scores {
 	font-size: 15px;
 	padding: 0;
-	margin: 0;
+	width: 80px;
+	margin-left: 50px;
 }
 
-.msg {
-	height: 40px;
+.msg, .amts{
 	color: lightgreen;
-	font-size: 30px;
+	font-size: 35px;
 	font-family: 'Charm', cursive;
 }
 
-
 .actionBtns {
-/*	background-color: black;*/
 	font-size: 20px;
 }
 
 img {
 	height: 115px;
 	width: 80px;
-	margin: 8px;
 }
 
 #betAmt, #balance {

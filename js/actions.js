@@ -11,6 +11,7 @@ function placeWager(){
 					wager.push(this.value);
 					wagerTotal = wager.reduce(sum);
 					player.money = player.money - wagerTotal; 
+					document.getElementById("balance").innerText = player.money;
 					document.getElementById("betAmt").innerText = wagerTotal;
 				};
 			};
@@ -23,7 +24,6 @@ placeWager();
 
 
 function hitMe(target){
-	// console.log(target);
 	if(target.score < 21){
 		const addCard = shuffledDeck.shift();
 		target.hand.push(addCard);
@@ -33,15 +33,13 @@ function hitMe(target){
 		document.querySelector(target.selector).appendChild(card);
 		countScore(target);
 		checkBust(player);
-		// blackJack();
-		// checkWin(player);
+		blackJack(player);
 	};
 	console.log(target)
 }
 
 
 function stand(){
-	// console.log(dealer.hand.values)
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
 	countScore(dealer);
 	dealerLimits();
@@ -64,19 +62,10 @@ function checkBust(target){
 	}
 }
 
-function blackJack(){
-	if (player.hand.indexOf("A") && player.score === 11 && player.hand.length === 2){
-		document.querySelector(".msg").innerText = player.name + " has blackJack!";
-		document.querySelector(player.scoreClass).innerText = "COUNT: " + 21;
-		player.money = player.money + wagerTotal * 3;
-	} else if (dealer.hand.indexOf("A") && dealer.score === 11 && dealer.hand.length === 2) {
-		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
-		document.querySelector(dealer.scoreClass).innerText = "COUNT: " + 21;
-	}
-}
 
 
 function checkWin(){
+
 	if(player.score > dealer.score){
 		setTimeout(nextHand, 4000);
 		document.querySelector(".msg").innerText = "player wins!";
@@ -94,8 +83,14 @@ function checkWin(){
 }
 
 
-
-
-
+function blackJack(target){
+	var a = "A"
+	if ((target.hand[0] === a || target.hand[1] === a) && target.score === 11 && target.hand.length === 2){
+		document.querySelector(".msg").innerText = target.name + " has blackJack!";
+		document.querySelector(target.scoreClass).innerText = "Count: " + 21;
+	}
+}
+	//blackjack condition
+	// player.money = player.money + wagerTotal * 3;
 
 
