@@ -58,17 +58,18 @@ function countScore(target){
 }
 
 
-// Need to also remove cards and scoring and keep current stack
+// Need to keep current stack, need to run this after win/lose
 function nextHand(){
   var dealt = document.querySelectorAll(".dealtCards");
   for (var i = 0; i < dealt.length; i++){
     dealt[i].remove();
     shuffledDeck.push(dealer.hand.pop());
     shuffledDeck.push(player.hand.pop());
+    document.querySelector(player.scoreClass).innerText = "";
+    document.querySelector(dealer.scoreClass).innerText = "";
+    document.querySelector(".msg").innerText = "";
   }
 }
-
-
 
 
 

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var elems = document.querySelectorAll('.modal');
 	var instances = M.Modal.init(elems);
 	var instance = M.Modal.getInstance(elems);
+	
 
 	getDeck();
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if(wager != "" && player.score === 0){
 		dealDeck();
 		countScore(player);
+		start = false;
 		};
 	});
 
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("stand").addEventListener("click", stand);
 
 	// Need to restart the game
-	document.querySelector(".again").addEventListener("click", nextHand);
+	// document.querySelector(".again").addEventListener("click", nextHand);
 	// Reset Game
 	// document.querySelector(".again").addEventListener("click", resetGame);
 

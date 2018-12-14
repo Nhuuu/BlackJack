@@ -7,20 +7,24 @@ function betLimit(){
 
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
-	var allChips = document.querySelectorAll(".chips");
-	for(var i = 0; i < allChips.length; i++){
-		allChips[i].addEventListener('click', function(e){
-			e.preventDefault();
-			wager.push(this.value);
-			wagerTotal = wager.reduce(sum);
-			currentStack = initialStack - wagerTotal;
-			betLimit();
-		});
-	};
+	console.log(start)
+		var allChips = document.querySelectorAll(".chips");
+		for(var i = 0; i < allChips.length; i++){
+			allChips[i].addEventListener('click', function(e){
+				e.preventDefault();
+				if(start){
+					wager.push(this.value);
+					wagerTotal = wager.reduce(sum);
+					currentStack = initialStack - wagerTotal;
+					betLimit();
+				}
+			});
+		};
 };
 
 
 placeWager();
+
 
 
 function hitMe(target){
@@ -64,14 +68,17 @@ function checkWin(){
 	if(player.score > dealer.score){
 		document.querySelector(".msg").innerText = "PLAYER WINS!";
 		document.getElementById("balance").innerText = currentStack + wagerTotal;
-		// setTimeout(nextHand, 3000);
+		setTimeout(nextHand, 3000);
+		// dealDeck();
 	} else if(dealer.score > player.score){
 		document.querySelector(".msg").innerText = "DEALER WINS!";
 		document.getElementById("balance").innerText = currentStack;
-		// setTimeout(nextHand, 3000);
+		setTimeout(nextHand, 3000);
+		// dealDeck();
 	} else if(dealer.score === player.score){
 		document.querySelector(".msg").innerText = "DRAW! PLAY AGAIN!";
-		// setTimeout(nextHand, 3000);
+		setTimeout(nextHand, 3000);
+		// dealDeck();
 	};
 }
 

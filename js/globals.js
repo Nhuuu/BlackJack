@@ -28,13 +28,14 @@ const hitDealer = () => hitMe(dealer);
 
 //Global 
 var initialStack = 500;
-var currentStack;
-var card = {};
+var currentStack
+var card = [];
 var deck = [];
-var shuffledDeck;
+var shuffledDeck = [];
 var bCard;
 var wager = [];
 var wagerTotal;
+var start = true;
 
 
 
