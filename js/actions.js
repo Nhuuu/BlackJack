@@ -1,23 +1,19 @@
-function betLimit(){
-	if(wagerTotal <= currentStack){
-		document.getElementById("betAmt").innerText = wagerTotal;
-		document.getElementById("balance").innerText = currentStack;
-	};
-}
+document.getElementById("balance").innerText = player.money;
 
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
-	console.log(start)
 	var allChips = document.querySelectorAll(".chips");
 	for(var i = 0; i < allChips.length; i++){
 		allChips[i].addEventListener('click', function(e){
 			e.preventDefault();
 			if(start){
-				wager.push(this.value);
-				wagerTotal = wager.reduce(sum);
-				currentStack = initialStack - wagerTotal;
-				betLimit();
-			}
+				if(wagerTotal <= player.money){
+					wager.push(this.value);
+					wagerTotal = wager.reduce(sum);
+					player.money = player.money - wagerTotal; 
+					document.getElementById("betAmt").innerText = wagerTotal;
+				};
+			};
 		});
 	};
 };
@@ -27,6 +23,7 @@ placeWager();
 
 
 function hitMe(target){
+	// console.log(target);
 	if(target.score < 21){
 		const addCard = shuffledDeck.shift();
 		target.hand.push(addCard);
@@ -36,16 +33,20 @@ function hitMe(target){
 		document.querySelector(target.selector).appendChild(card);
 		countScore(target);
 		checkBust(player);
+		// blackJack();
+		// checkWin(player);
 	};
+	console.log(target)
 }
 
 
 function stand(){
+	// console.log(dealer.hand.values)
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
 	countScore(dealer);
 	dealerLimits();
 	checkBust(dealer);
-	checkWin();
+	checkWin(); 
 }
 
 function dealerLimits(){
@@ -58,28 +59,40 @@ function dealerLimits(){
 
 function checkBust(target){
 	if(target.score > 21){
-		document.querySelector(".msg").innerText = target.name + " BUST!";
-		setTimeout(nextHand, 5000);
+		document.querySelector(".msg").innerText = target.name + " bust!";
+		setTimeout(nextHand, 4000);
 	}
 }
 
-function checkWin(){
-	if(player.score > dealer.score){
-		setTimeout(nextHand, 5000);
-		document.querySelector(".msg").innerText = "PLAYER WINS!";
-		document.getElementById("balance").innerText = currentStack + wagerTotal;	
-	} else if(player.score < dealer.score && dealer.score < 21){
-		setTimeout(nextHand, 5000);
-		document.querySelector(".msg").innerText = "DEALER WINS!";
-	} else if(player.score === dealer.score){
-		setTimeout(nextHand, 5000);
-		document.querySelector(".msg").innerText = "DRAW! PLAY AGAIN!";
-	};
+function blackJack(){
+	if (player.hand.indexOf("A") && player.score === 11 && player.hand.length === 2){
+		document.querySelector(".msg").innerText = player.name + " has blackJack!";
+		document.querySelector(player.scoreClass).innerText = "COUNT: " + 21;
+		player.money = player.money + wagerTotal * 3;
+	} else if (dealer.hand.indexOf("A") && dealer.score === 11 && dealer.hand.length === 2) {
+		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
+		document.querySelector(dealer.scoreClass).innerText = "COUNT: " + 21;
+	}
 }
 
-function doubleDown(){
-	var double = wagerTotal * 2;
+
+function checkWin(){
+	if(player.score > dealer.score){
+		setTimeout(nextHand, 4000);
+		document.querySelector(".msg").innerText = "player wins!";
+		player.money = player.money + (wagerTotal * 2);
+		document.getElementById("balance").innerText = player.money;
+	} else if(player.score < dealer.score && dealer.score < 21){
+		setTimeout(nextHand, 4000);
+		document.querySelector(".msg").innerText = "dealer wins!";
+	} else if(player.score === dealer.score){
+		setTimeout(nextHand, 4000);
+		document.querySelector(".msg").innerText = "draw!";
+		player.money = player.money + wagerTotal;
+	};
+	console.log(player.money); //fix this
 }
+
 
 
 

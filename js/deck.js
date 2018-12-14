@@ -3,14 +3,16 @@ function getDeck(){
 	for(var i = 0; i < suits.length; i++){
 		for(var j = 0; j < values.length; j++){
       	var count = parseInt(values[j])
-      	if(values[j] === "J" || values[j] === "Q" || values[j] === "K") 
-       	count = 10;
-      	if(values[j] === "A")
-        count = 11;
+      	if(values[j] === "J" || values[j] === "Q" || values[j] === "K"){
+          count = 10;
+        } 
+      	if(values[j] === "A"){
+          count = 1;
+        } 
 		card = {values: values[j], suits: suits[i], count: count};
       	deck.push(card);
 		};
-  	}
+  };
 }
 
 
@@ -46,12 +48,16 @@ function dealDeck(){
 	backCard();
 }
 
-
-
 // Count each player's score.
 function countScore(target){
+  var aces = 0;
 	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){
+    // for (var j = 0; j < target.hand[i].values.length; j++){
+    //   if(target.hand[i].values[j] === "A"){
+    //     aces++;
+    //   }
+    // }
 		target.score = target.score + target.hand[i].count;
 	}
 	document.querySelector(target.scoreClass).innerText = "COUNT: " + target.score;
@@ -70,21 +76,18 @@ function nextHand(){
     document.querySelector(dealer.scoreClass).innerText = "";
     document.querySelector(".msg").innerText = "";
     document.getElementById("betAmt").innerText = "";
-    document.getElementById("balance").innerText = currentStack;
+    wager = [];
+    player.score = 0;
+    dealer.score = 0;
+    // document.getElementById("balance").innerText = currentStack;
     start = true;
 }
 
 
+// Clear the board, not yet working.
+function resetGame(){
 
-// // Clear the board, not yet working.
-// function resetGame(){
-//   while (player.hand != ""){
-//     var pHand = document.querySelector(".pHand")
-//     pHand.removeChild(player.hand.childNodes[0]);
-//     // document.querySelector(".dHand").removeChild(dealer.hand.childNodes[0]);
-//     resetDeck();
-//     }
-//   shuffle(deck);
-// }
+  shuffle(deck);
+}
 
 

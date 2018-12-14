@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	shuffle(deck);
 
-
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
-		if(wager != "" && player.score === 0){
+		if(wager != ""){
 		dealDeck();
 		countScore(player);
 		};
@@ -24,13 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 
 	// Stand button
-	document.getElementById("stand").addEventListener("click", stand);
+	document.getElementById("stand").addEventListener("click", function(){
+		if (dealer.hand){
+			stand();
+		}
+	});
 
 	// Double down
-	document.getElementById("double").addEventListener("click", function(){
-		document.getElementById("betAmt").innerText = wagerTotal * 2;
-		document.getElementById("balance").innerText = currentStack - wagerTotal;
-	});
+	// document.getElementById("double").addEventListener("click", function(){
+	// 	document.getElementById("betAmt").innerText = wagerTotal * 2;
+	// 	document.getElementById("balance").innerText = currentStack - wagerTotal;
+	// });
 
 	// Need to restart the game
 	// document.querySelector(".again").addEventListener("click", resetGame);
