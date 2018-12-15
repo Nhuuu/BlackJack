@@ -7,9 +7,9 @@ function getDeck(){
           count = 10;
         } 
       	if(values[j] === "A"){
-          count = 1;
+          count = 11;
         } 
-		card = {values: values[j], suits: suits[i], count: count};
+		    card = {values: values[j], suits: suits[i], count: count};
       	deck.push(card);
 		};
   };
@@ -53,8 +53,17 @@ function countScore(target){
   var aces = 0;
 	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){
-		target.score = target.score + target.hand[i].count;
+    for (var j = 0; j < target.hand[i].values.length; j++){
+      target.score = target.score + target.hand[i].count;
+      if(target.hand[i].values[j] == "A"){
+        aces++;
+        } 
+      }
 	}
+  while (target.score > 21 && aces > 0){
+    target.score -= 10;
+    aces -= 1;
+  }
 	document.querySelector(target.scoreClass).innerText = "Count: " + target.score;
 }
 
@@ -80,9 +89,9 @@ function nextHand(){
 
 // Clear the board, not yet working.
 function resetGame(){
-  getDeck();
   shuffle(deck);
-  document.getElementById("balance").innerText = player.money;
+  dealDeck();
+  // player.money;
 }
 
 

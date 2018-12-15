@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 
+	
+
 	// Double down
 	// document.getElementById("double").addEventListener("click", function(){
 	// 	document.getElementById("betAmt").innerText = wagerTotal * 2;
