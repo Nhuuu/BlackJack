@@ -75,10 +75,10 @@ function checkWin(){
 		setTimeout(nextHand, 4000);
 		console.log("Player money before update", player.money)
 		document.querySelector(".msg").innerText = "player wins!";
-		player.money = player.money + (wagerTotal * 2); // not working
+		player.money = player.money + (wagerTotal * 2); 
 		console.log("Player money after update", player.money)
 		document.getElementById("balance").innerText = player.money;
-	} else if(player.score < dealer.score && dealer.score < 21){
+	} else if(player.score < dealer.score && dealer.score <= 21){
 		console.log("player score < dealer score");
 		setTimeout(nextHand, 4000);
 		document.querySelector(".msg").innerText = "dealer wins!";
@@ -86,7 +86,7 @@ function checkWin(){
 		console.log(" equal scores!");
 		setTimeout(nextHand, 4000);
 		document.querySelector(".msg").innerText = "draw!";
-		player.money = player.money + wagerTotal; //not working
+		player.money = player.money + wagerTotal;
 		document.getElementById("balance").innerText = player.money;
 	};
 	console.log(player.money); //fix this
@@ -98,7 +98,7 @@ function blackJack(target){
 		setTimeout(nextHand, 4000);
 		document.querySelector(".msg").innerText = target.name + " has blackJack!";
 		document.querySelector(target.scoreClass).innerText = "Count: " + 21;
-		// player.money = player.money + wagerTotal * 3;
+		// player.money = player.money + (wagerTotal * 3); 
 	}
 }
 
