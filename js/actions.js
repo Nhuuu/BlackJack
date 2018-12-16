@@ -1,27 +1,28 @@
 document.getElementById("balance").innerText = player.money;
 
+
+
+
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
-	var allChips = document.querySelectorAll(".chips");
-	for(var i = 0; i < allChips.length; i++){
-		allChips[i].addEventListener('click', function(e){
-			e.preventDefault();
-			if(start){
-				if(wagerTotal <= player.money){
-					wager.push(this.value);
-					wagerTotal = wager.reduce(sum);
-					player.money = player.money - wagerTotal; 
-					document.getElementById("balance").innerText = player.money;
-					document.getElementById("betAmt").innerText = wagerTotal;
+	if(player.hand.length != 2){
+		var allChips = document.querySelectorAll(".chips");
+		for(var i = 0; i < allChips.length; i++){
+			allChips[i].addEventListener('click', function(e){
+				e.preventDefault();
+				if(start){
+					if(wagerTotal <= player.money){
+						wager.push(this.value);
+						wagerTotal = wager.reduce(sum);
+						document.getElementById("betAmt").innerText = wagerTotal;
+						player.money = player.money - wagerTotal; 
+						document.getElementById("balance").innerText = player.money;
+					}
 				};
-			};
-		});
+			});
+		};
 	};
 };
-
-
-placeWager();
-
 
 function hitMe(target){
 	if(target.score < 21){
@@ -32,18 +33,17 @@ function hitMe(target){
 		card.classList.add("dealtCards");
 		document.querySelector(target.selector).appendChild(card);
 		countScore(target);
+		postScore(target);
 		checkBust();
-		blackJack(player);
 	};
-	console.log(target)
 }
 
 
 function stand(){
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
 	countScore(dealer);
+	postScore(dealer);
 	dealerLimits();
-	checkBust();
 	checkWin(); 
 }
 
@@ -55,6 +55,24 @@ function dealerLimits(){
 	};
 }
 
+
+function checkBlackJack(){
+	if (dealer.score === 21 && dealer.hand.length === 2){
+		stand();
+		setTimeout(nextHand, 5000);
+		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
+	} else if (player.score === 21 && player.hand.length === 2){
+		setTimeout(nextHand, 5000);
+		document.querySelector(".msg").innerText = player.name + " has blackJack!";
+		console.log("before update" + player.money)
+		player.money = player.money + (wagerTotal * 3); 
+		document.getElementById("balance").innerText = player.money;
+		console.log("after update" + player.money)
+	};
+}
+
+
+
 function checkBust(){
 	if(player.score > 21){
 		document.querySelector(".msg").innerText = player.name + " bust!";
@@ -64,7 +82,7 @@ function checkBust(){
 		setTimeout(nextHand, 4000);
 		player.money = player.money + (wagerTotal * 2);
 		document.getElementById("balance").innerText = player.money;
-	}
+	};
 }
 
 
@@ -89,18 +107,10 @@ function checkWin(){
 		player.money = player.money + wagerTotal;
 		document.getElementById("balance").innerText = player.money;
 	};
-	console.log(player.money); //fix this
 }
 
 
-function blackJack(target){
-	if (target.score === 21 && target.hand.length === 2){
-		setTimeout(nextHand, 4000);
-		document.querySelector(".msg").innerText = target.name + " has blackJack!";
-		document.querySelector(target.scoreClass).innerText = "Count: " + 21;
-		// player.money = player.money + (wagerTotal * 3); 
-	}
-}
+
 
 
 

@@ -7,12 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	shuffle(deck);
 
+	placeWager();
+
+	
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
 		if(wager != "" && player.score === 0){
-		document.querySelector(".msg").innerText = "Hit or Stand";
+		document.querySelector(".msg").innerText = "Hit Or Stand";
 		dealDeck();
-		countScore(player);
+		checkBlackJack();
 		};
 		start = false;
 	});
@@ -26,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Stand button
 	document.getElementById("stand").addEventListener("click", function(){
-		if (dealer.hand){
+		if(dealer.hand){
 			stand();
 		}
 	});

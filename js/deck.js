@@ -31,9 +31,10 @@ function shuffle(deck){
 }
 
 
-// Populate the back of the card image on initial deal.
+// Populate the back of the card image and value on initial deal.
 function backCard(){
 	dealer.hand.push(shuffledDeck.shift());
+  console.log(dealer.hand);
 	bCard = document.createElement("img");
 	bCard.src = "./cardImgs/cardback.jpg";
   bCard.classList.add("dealtCards");
@@ -43,9 +44,11 @@ function backCard(){
 // Deal two cards to each player.
 function dealDeck(){
 	hitMe(player);
+  hitMe(dealer);
 	hitMe(player);
-	hitMe(dealer);
 	backCard();
+  countScore(dealer);
+  countScore(player);
 }
 
 // Count each player's score.
@@ -53,8 +56,8 @@ function countScore(target){
   var aces = 0;
 	target.score = 0;
 	for (var i = 0; i < target.hand.length; i++){
+    target.score = target.score + target.hand[i].count;
     for (var j = 0; j < target.hand[i].values.length; j++){
-      target.score = target.score + target.hand[i].count;
       if(target.hand[i].values[j] == "A"){
         aces++;
         } 
@@ -64,11 +67,14 @@ function countScore(target){
     target.score -= 10;
     aces -= 1;
   }
-	document.querySelector(target.scoreClass).innerText = "Count: " + target.score;
 }
 
+function postScore(target){
+  document.querySelector(target.scoreClass).innerText = "Score: " + target.score;
+};
 
-// Need to keep current stack, need to run this after win/lose
+
+
 function nextHand(){
   var dealt = document.querySelectorAll(".dealtCards");
   for (var i = 0; i < dealt.length; i++){

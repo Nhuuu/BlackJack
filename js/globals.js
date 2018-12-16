@@ -4,8 +4,6 @@ document.getElementById("chip-25").value = 25;
 document.getElementById("chip-50").value = 50;
 document.getElementById("chip-100").value = 100;
 const sum = (a, b) => a + b;
-
-
 const suits = ["S", "D", "C", "H"];
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 var dealer = {
