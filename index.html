@@ -9,80 +9,78 @@
 </head>
 <body>
 	<nav>
-	    <div class="nav-wrapper">
-	      <span class="left brand-logo">blackjack</span>
-	      <ul id="nav-mobile" class="right">
-	        <li><a href="#" class="again">play again</a></li>
-	        <li><a href="#modal1" class="navRules modal-trigger">rules</a>
-				<div id="modal1" class="modal">
+    <div class="nav-wrapper">
+      <span class="left brand-logo">blackjack</span>
+      <ul id="nav-mobile" class="right">
+        <li><a href="#" class="again">play again</a></li>
+        <li><a href="#modal1" class="navRules modal-trigger">rules</a>
+			  <div id="modal1" class="modal">
   				<div class="modal-content">
-      				<div class="row">
-      					<div class="col s6 columns">
-      						Goal
-      						<p>Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A "blackjack" occurs when you get one ace and one 10 point card.</p>
-      						Card Values
-      						<p>Queens, Kings, and Jacks are worth 10, pip cards are worth their face value. Aces can be worth either 11 or 1. In this game, Aces have a default value of 11 unless you go over 21 on your hand.</p> 
-      						Gameplay
-      						<p>The dealer will give 2 cards to themself and 2 cards to you. The dealer's second card will be played face down. You can choose to either hit (receive more cards) or stand (keep your cards as is). You can hit as many times as you choose so long as your deck is under 21.</p>
-      					</div>
-      					<div class="col s6 columns">
-      						Betting
-      						<p>Bets must be placed prior to playing. After receiving your first 2 cards, you can choose to double down (double your original bet). After your next move, you can no longer choose to double down.</p>
-      						Splitting Pairs<p>If you receive 2 cards of the same face value, you may choose to split your cards and play each hand separately. At this table, you can only split once. After you split, one new card will be dealt to each hand then you can choose to either hit or stand for each hand accordingly.</p>
-      						Payout
-      						<p>Payout is 1:1 unless you get a blackjack. For a blackjack, payout is 3:2.</p>
-      					</div>
+      			<div class="row">
+      				<div class="col s6 columns">
+    						Goal
+    						<p>Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A "blackjack" occurs when you get one ace and one 10 point card.</p>
+    						Card Values
+    						<p>Queens, Kings, and Jacks are worth 10, pip cards are worth their face value. Aces can be worth either 11 or 1. In this game, Aces have a default value of 11 unless you go over 21 on your hand.</p> 
+    						Gameplay
+    						<p>The dealer will give 2 cards to themself and 2 cards to you. The dealer's second card will be played face down. You can choose to either hit (receive more cards) or stand (keep your cards as is). You can hit as many times as you choose so long as your deck is under 21.</p>
+    					</div>
+    					<div class="col s6 columns">
+    						Betting
+    						<p>Bets must be placed prior to playing. Click on the chips to add your bet value. After receiving your first 2 cards, you can choose to double down (double your original bet). After your next move, you can no longer choose to double down.</p>
+    						<!-- Splitting Pairs<p>If you receive 2 cards of the same face value, you may choose to split your cards and play each hand separately. At this table, you can only split once. After you split, one new card will be dealt to each hand then you can choose to either hit or stand for each hand accordingly.</p> -->
+    						Payout
+    						<p>Payout is 1:1 unless you get a blackjack. For a blackjack, payout is 3:2.</p>
+    					</div>
     				</div>
-		      	</div>
-		      	<div class="modal-footer" id="footer">
-		      		<a href="#" class="modal-close btn-flat">Close</a>
-		    	</div>
-		    </li>
-	      </ul>
-	    </div>
-  	</nav>
-    <div class="container">
-    	<div class="dealer">
-    		<h5>Dealer</h5>
-    		<h6 class="scores dScore">Score:</h6>
-    		<div class="dHand"></div>
-		</div>
-    	<span class="msg">Place Your Bet</span>
-	   	<div class="player">
-   			<h5>Player</h5>
-   			<h6 class="scores pScore">Score:</h6>
-   			<div class="pHand"></div>
-	   	</div>
-	   	<div id="wagerOptions">
-        <a href="#" id="chip-5" class="chips">
-          <img src="./otherImgs/chip-5.png" class="wager">
-        </a>
-  			<a href="#" id="chip-10" class="chips">
-  				<img src="./otherImgs/chip-10.png" class="wager">
-  			</a>
-			<a href="#" id="chip-25" class="chips">
-  				<img src="./otherImgs/chip-25.png" class="wager">
-  			</a>
-  			
-			<a href="#" id="chip-100" class="chips">
-  				<img src="./otherImgs/chip-100.png" class="wager">
-  			</a>
+	      	</div>
+	      	<div class="modal-footer" id="footer">
+	      		<a href="#" class="modal-close btn-flat">Close</a>
+	    	</div>
+	      </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+  	<div class="dealer">
+  		<h5>Dealer</h5>
+  		<h6 class="scores dScore">Score:</h6>
+  		<div class="dHand cards"></div>
+	</div>
+    <span class="msg">Place Your Bet</span>
+   	<div class="player">
+ 			<h5>Player</h5>
+ 			<h6 class="scores pScore">Score:</h6>
+ 			<div class="pHand cards"></div>
+   	</div>
+   	<div id="wagerOptions">
+      <a href="#" id="chip-5" class="chips">
+        <img src="./otherImgs/chip-5.png" class="wager">
+      </a>
+			<a href="#" id="chip-10" class="chips">
+				<img src="./otherImgs/chip-10.png" class="wager">
+			</a>
+      <a href="#" id="chip-25" class="chips">
+				<img src="./otherImgs/chip-25.png" class="wager">
+			</a>
+      <a href="#" id="chip-100" class="chips">
+				<img src="./otherImgs/chip-100.png" class="wager">
+			</a>
   		<div class="amounts">
-  			<span class="amts">BET:<span id="betAmt"></span>
-        </span>
+  			<span class="amts">BET:</span>
+        <span class="amts" id="betAmt"></span>
         <img src="./otherImgs/stack.png" class="wager">
   			<span class="amts" id="balance"></span>
-  			</a>
   		</div>
-  		</div>
-	   	<div class="row actionBtns">
-   			<button class="action" id="deal">Deal</button>
-  			<button class="action" id="hit">Hit</button>
-  			<button class="action" id="stand">Stand</button>
-  			<button class="action" id="double">Double-Down</button>
+		</div>
+   	<div class="row actionBtns">
+ 			<button class="action" id="deal">Deal</button>
+			<button class="action" id="hit">Hit</button>
+			<button class="action" id="stand">Stand</button>
+			<button class="action" id="double">Double-Down</button>
 <!--   			<button class="action" id="split">Split</button>
-	   	</div> -->
-  	</div>
+   	</div> -->
+    </div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/globals.js"></script>
 	<script type="text/javascript" src="js/deck.js"></script>

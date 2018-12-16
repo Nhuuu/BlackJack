@@ -3,23 +3,20 @@ document.getElementById("balance").innerText = player.money;
 
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
-	// if(player.hand.length != 2){
-		var allChips = document.querySelectorAll(".chips");
-		for(var i = 0; i < allChips.length; i++){
-			allChips[i].addEventListener('click', function(e){
-				e.preventDefault();
-				if(start){
-					if(wagerTotal <= player.money){
-						pokerChip.play();
-						wager.push(this.value);
-						wagerTotal = wager.reduce(sum);
-						document.getElementById("betAmt").innerText = wagerTotal;
-						player.money = player.money - wagerTotal; 
-						document.getElementById("balance").innerText = player.money;
-					}
-				};
-			});
-		// };
+	var allChips = document.querySelectorAll(".chips");
+	for(var i = 0; i < allChips.length; i++){
+		allChips[i].addEventListener('click', function(e){
+			e.preventDefault();
+			if(start){
+				wager.push(this.value);
+				wagerTotal = wager.reduce(sum);
+				if(wagerTotal <= player.money){
+					pokerChip.play();
+					document.getElementById("betAmt").innerText = wagerTotal;
+					document.getElementById("balance").innerText = player.money - wagerTotal;
+				}
+			};
+		});
 	};
 };
 
@@ -41,6 +38,7 @@ function hitMe(target){
 
 function stand(){
 	bCard.src = "./cardImgs/" + dealer.hand[1].values + dealer.hand[1].suits + ".jpg";
+	dealCard.play();
 	countScore(dealer);
 	postScore(dealer);
 	dealerLimits();

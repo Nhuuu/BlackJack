@@ -5,11 +5,7 @@ body {
 	flex-flow: row wrap;
 }
 
-.gameRules {
-	font-size: 16px;
-}
-
-.nav-wrapper {
+.nav-wrapper, .btn-flat {
 	background-color: black;
 	color: white;
 	padding: 0 10px;
@@ -23,23 +19,14 @@ body {
 .columns{
 	text-align: justify;
 	line-height: 18px;
-	font-size: 12px;
+	font-size: 14px;
 }
 
-.modal{
+.modal, #footer{
 	background-color: black;
 	width: 100%;
 	overflow-y: hidden;
 }
-
-#footer {
-	background-color: black;
-}
-
-.btn-flat{
-	color: white;
-}
-
 
 .wager {
 	height: 50px;
@@ -47,16 +34,18 @@ body {
 	display: inline-block;
 }
 
+a {
+	text-decoration: none;
+}
+
 .container {
 	text-align: center;
-	max-width: 600px;
-	margin-top: 15px;
+	max-width: 650px;
 }
 
 
 .dealer, .player {
 	height: 180px;
-	padding: 0;
 	color: #BF541B;
 	font-family: 'Charm', cursive;
 }
@@ -68,34 +57,28 @@ h5 {
 }
 
 .scores {
-	font-size: 15px;
-	padding: 0;
+	font-size: 20px;
 	width: 80px;
 	margin-left: 50px;
 }
 
-.msg, .amts{
+.msg, .amts {
 	color: #BF541B;
 	font-size: 35px;
 	font-family: 'Charm', cursive;
-	margin: 0 20px;
+	margin: 0 20px 0 0;
 }
 
-.actionBtns {
+.action {
 	font-size: 20px;
-}
+	color: white;
+  	padding: 4px;
+  	background-image: linear-gradient(to top, #BF541B 0%, #303030 100%);
+  	margin: 1px;
+ }
 
 img {
 	height: 115px;
 	width: 80px;
-}
-
-#betAmt, #balance {
-	font-size: 30px;
-	margin: 0 10px;
-}
-
-.amounts {
-	color: white;
-	font-size: 30px;
+	margin: 5px;
 }

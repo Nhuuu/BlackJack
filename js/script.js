@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
 		if(wager != "" && player.score === 0){
@@ -36,17 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("stand").addEventListener("click", function(){
 		if(dealer.hand){
 			stand();
-			dealCard.play();
 		}
 	});
 
-	
-
 	// Double down
-	// document.getElementById("double").addEventListener("click", function(){
-	// 	document.getElementById("betAmt").innerText = wagerTotal * 2;
-	// 	document.getElementById("balance").innerText = currentStack - wagerTotal;
-	// });
+	document.getElementById("double").addEventListener("click", function(){
+		document.getElementById("betAmt").innerText = wagerTotal * 2;
+		document.getElementById("balance").innerText = player.money - wagerTotal;
+		pokerChip.play();
+	});
 
 	// Need to restart the game
 	document.querySelector(".again").addEventListener("click", function(){
