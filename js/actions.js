@@ -1,17 +1,16 @@
 document.getElementById("balance").innerText = player.money;
 
 
-
-
 // For every chip clicked, it pushes the value to the wager array.
 function placeWager(){
-	if(player.hand.length != 2){
+	// if(player.hand.length != 2){
 		var allChips = document.querySelectorAll(".chips");
 		for(var i = 0; i < allChips.length; i++){
 			allChips[i].addEventListener('click', function(e){
 				e.preventDefault();
 				if(start){
 					if(wagerTotal <= player.money){
+						pokerChip.play();
 						wager.push(this.value);
 						wagerTotal = wager.reduce(sum);
 						document.getElementById("betAmt").innerText = wagerTotal;
@@ -20,7 +19,7 @@ function placeWager(){
 					}
 				};
 			});
-		};
+		// };
 	};
 };
 
@@ -30,6 +29,7 @@ function hitMe(target){
 		target.hand.push(addCard);
 		const card = document.createElement("img");
 		card.src = "./cardImgs/" + addCard.values + addCard.suits + ".jpg";
+		dealCard.play();
 		card.classList.add("dealtCards");
 		document.querySelector(target.selector).appendChild(card);
 		countScore(target);
@@ -59,10 +59,10 @@ function dealerLimits(){
 function checkBlackJack(){
 	if (dealer.score === 21 && dealer.hand.length === 2){
 		stand();
-		setTimeout(nextHand, 5000);
+		setTimeout(nextHand, 3000);
 		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
 	} else if (player.score === 21 && player.hand.length === 2){
-		setTimeout(nextHand, 5000);
+		setTimeout(nextHand, 3000);
 		document.querySelector(".msg").innerText = player.name + " has blackJack!";
 		console.log("before update" + player.money)
 		player.money = player.money + (wagerTotal * 3); 
@@ -75,14 +75,14 @@ function checkBlackJack(){
 
 function checkBust(){
 	if(player.score > 21){
-		document.querySelector(".msg").innerText = player.name + " bust!";
-		setTimeout(nextHand, 4000);
+		document.querySelector(".msg").innerText = player.name + " busts!";
+		setTimeout(nextHand, 3000);
 	} else if(dealer.score > 21){
-		document.querySelector(".msg").innerText = dealer.name + " bust!";
-		setTimeout(nextHand, 4000);
+		document.querySelector(".msg").innerText = dealer.name + " busts!";
+		setTimeout(nextHand, 3000);
 		player.money = player.money + (wagerTotal * 2);
 		document.getElementById("balance").innerText = player.money;
-	};
+	}
 }
 
 
@@ -90,20 +90,20 @@ function checkBust(){
 function checkWin(){
 	if(player.score > dealer.score){
 		console.log("player score > dealer score");
-		setTimeout(nextHand, 4000);
+		setTimeout(nextHand, 3000);
 		console.log("Player money before update", player.money)
-		document.querySelector(".msg").innerText = "player wins!";
+		document.querySelector(".msg").innerText = "Player wins!";
 		player.money = player.money + (wagerTotal * 2); 
 		console.log("Player money after update", player.money)
 		document.getElementById("balance").innerText = player.money;
 	} else if(player.score < dealer.score && dealer.score <= 21){
 		console.log("player score < dealer score");
-		setTimeout(nextHand, 4000);
-		document.querySelector(".msg").innerText = "dealer wins!";
+		setTimeout(nextHand, 3000);
+		document.querySelector(".msg").innerText = "Dealer wins!";
 	} else if(player.score === dealer.score){
 		console.log(" equal scores!");
-		setTimeout(nextHand, 4000);
-		document.querySelector(".msg").innerText = "draw!";
+		setTimeout(nextHand, 3000);
+		document.querySelector(".msg").innerText = "Draw!";
 		player.money = player.money + wagerTotal;
 		document.getElementById("balance").innerText = player.money;
 	};

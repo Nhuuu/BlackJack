@@ -9,11 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	placeWager();
 
-	
+
+
+
+
+
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
 		if(wager != "" && player.score === 0){
 		document.querySelector(".msg").innerText = "Hit Or Stand";
+		dealCard.play();
 		dealDeck();
 		checkBlackJack();
 		};
@@ -31,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("stand").addEventListener("click", function(){
 		if(dealer.hand){
 			stand();
+			dealCard.play();
 		}
 	});
 

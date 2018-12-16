@@ -1,5 +1,5 @@
 body {
-	background-image: url("../otherImgs/woodbkgrd.jpg");
+	background-image: radial-gradient(#103F12, black);
 	background: cover;
 	display: flex;
 	flex-flow: row wrap;
@@ -27,13 +27,13 @@ body {
 }
 
 .modal{
-	background-color: #093010;
+	background-color: black;
 	width: 100%;
 	overflow-y: hidden;
 }
 
 #footer {
-	background-color: #093010;
+	background-color: black;
 }
 
 .btn-flat{
@@ -50,17 +50,14 @@ body {
 .container {
 	text-align: center;
 	max-width: 600px;
-	background-color: #194922;
 	margin-top: 15px;
-	border-radius: 150px;
-	border: 20px solid black;
 }
 
 
 .dealer, .player {
 	height: 180px;
 	padding: 0;
-	color: white;
+	color: #BF541B;
 	font-family: 'Charm', cursive;
 }
 
@@ -78,9 +75,10 @@ h5 {
 }
 
 .msg, .amts{
-	color: lightgreen;
+	color: #BF541B;
 	font-size: 35px;
 	font-family: 'Charm', cursive;
+	margin: 0 20px;
 }
 
 .actionBtns {
