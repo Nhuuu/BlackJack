@@ -13,8 +13,7 @@ function getDeck(){
       	deck.push(card);
 		};
   };
-}
-
+};
 
 // Shuffle the deck, used the Fisher-Yates technique
 function shuffle(deck){
@@ -28,8 +27,7 @@ function shuffle(deck){
       	deck[randInd] = null; //setting the randind to null after taking it out of the deck
     	} 
   	} return shuffledDeck;
-}
-
+};
 
 // Populate the back of the card image and value on initial deal.
 function backCard(){
@@ -38,8 +36,9 @@ function backCard(){
 	bCard = document.createElement("img");
 	bCard.src = "./cardImgs/cardback.jpg";
   bCard.classList.add("dealtCards");
+  bCard.classList.add("flip");
 	document.querySelector(dealer.selector).appendChild(bCard);
-}
+};
 
 // Deal two cards to each player.
 function dealDeck(){
@@ -49,9 +48,9 @@ function dealDeck(){
 	backCard();
   countScore(dealer);
   countScore(player);
-}
+};
 
-// Count each player's score.
+// Count each player's score, toggles the ace count.
 function countScore(target){
   var aces = 0;
 	target.score = 0;
@@ -67,21 +66,22 @@ function countScore(target){
     target.score -= 10;
     aces -= 1;
   }
-}
+};
+
 
 function postScore(target){
   document.querySelector(target.scoreClass).innerText = "Score: " + target.score;
 };
 
 
-
+// Clears for next hand.
 function nextHand(){
   var dealt = document.querySelectorAll(".dealtCards");
   for (var i = 0; i < dealt.length; i++){
     dealt[i].remove();
     shuffledDeck.push(dealer.hand.pop());
     shuffledDeck.push(player.hand.pop());
-  }
+  };
     document.querySelector(player.scoreClass).innerText = "";
     document.querySelector(dealer.scoreClass).innerText = "";
     document.getElementById("betAmt").innerText = "";
@@ -90,14 +90,5 @@ function nextHand(){
     player.score = 0;
     dealer.score = 0;
     start = true;
-}
-
-
-// Clear the board, not yet working.
-function resetGame(){
-  shuffle(deck);
-  dealDeck();
-  // player.money;
-}
-
+};
 

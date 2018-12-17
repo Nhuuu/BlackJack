@@ -14,7 +14,7 @@ function placeWager(){
 					pokerChip.play();
 					document.getElementById("betAmt").innerText = wagerTotal;
 					document.getElementById("balance").innerText = player.money - wagerTotal;
-				}
+				};
 			};
 		});
 	};
@@ -33,7 +33,7 @@ function hitMe(target){
 		postScore(target);
 		checkBust();
 	};
-}
+};
 
 
 function stand(){
@@ -43,7 +43,7 @@ function stand(){
 	postScore(dealer);
 	dealerLimits();
 	checkWin(); 
-}
+};
 
 function dealerLimits(){
 		if(dealer.score < 17){
@@ -51,23 +51,20 @@ function dealerLimits(){
 			hitMe(dealer);
 		};
 	};
-}
+};
 
 
 function checkBlackJack(){
 	if (dealer.score === 21 && dealer.hand.length === 2){
 		stand();
-		setTimeout(nextHand, 3000);
 		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
-	} else if (player.score === 21 && player.hand.length === 2){
 		setTimeout(nextHand, 3000);
-		document.querySelector(".msg").innerText = player.name + " has blackJack!";
-		console.log("before update" + player.money)
-		player.money = player.money + (wagerTotal * 3); 
-		document.getElementById("balance").innerText = player.money;
-		console.log("after update" + player.money)
+	} else if (player.score === 21 && player.hand.length === 2){
+		document.querySelector(".msg").innerText = player.name + " has blackJack!"; 
+		document.getElementById("balance").innerText = player.money + wagerTotal * 2;
+		setTimeout(nextHand, 3000);
 	};
-}
+};
 
 
 
@@ -77,38 +74,24 @@ function checkBust(){
 		setTimeout(nextHand, 3000);
 	} else if(dealer.score > 21){
 		document.querySelector(".msg").innerText = dealer.name + " busts!";
+		document.getElementById("balance").innerText = player.money + wagerTotal;
 		setTimeout(nextHand, 3000);
-		player.money = player.money + (wagerTotal * 2);
-		document.getElementById("balance").innerText = player.money;
-	}
-}
+	};
+};
 
 
 
 function checkWin(){
 	if(player.score > dealer.score){
-		console.log("player score > dealer score");
-		setTimeout(nextHand, 3000);
-		console.log("Player money before update", player.money)
 		document.querySelector(".msg").innerText = "Player wins!";
-		player.money = player.money + (wagerTotal * 2); 
-		console.log("Player money after update", player.money)
-		document.getElementById("balance").innerText = player.money;
+		document.getElementById("balance").innerText = player.money + wagerTotal;
+		setTimeout(nextHand, 3000);
 	} else if(player.score < dealer.score && dealer.score <= 21){
-		console.log("player score < dealer score");
-		setTimeout(nextHand, 3000);
 		document.querySelector(".msg").innerText = "Dealer wins!";
-	} else if(player.score === dealer.score){
-		console.log(" equal scores!");
 		setTimeout(nextHand, 3000);
+	} else if(player.score === dealer.score){
 		document.querySelector(".msg").innerText = "Draw!";
-		player.money = player.money + wagerTotal;
 		document.getElementById("balance").innerText = player.money;
+		setTimeout(nextHand, 3000);
 	};
-}
-
-
-
-
-
-
+};

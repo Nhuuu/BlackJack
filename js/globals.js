@@ -6,6 +6,18 @@ document.getElementById("chip-100").value = 100;
 const sum = (a, b) => a + b;
 const suits = ["S", "D", "C", "H"];
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+const hitPlayer = () => hitMe(player);
+const hitDealer = () => hitMe(dealer);
+
+
+//Global 
+var bCard;
+var card = [];
+var deck = [];
+var shuffledDeck = [];
+var wager = [];
+var wagerTotal = 0;
+var start = true;
 var dealer = {
 	hand: [],
 	selector: '.dHand', // for querySelector
@@ -21,18 +33,7 @@ var player = {
 	money: 50,
 	name: "Player"
 };
-const hitPlayer = () => hitMe(player);
-const hitDealer = () => hitMe(dealer);
 
-
-//Global 
-var bCard;
-var card = [];
-var deck = [];
-var shuffledDeck = [];
-var wager = [];
-var wagerTotal = 0;
-var start = true;
 
 // Load Audio 
 var pokerChip = new Audio();
