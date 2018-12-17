@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	var instances = M.Modal.init(elems);
 	var instance = M.Modal.getInstance(elems);
 
-
 	getDeck();
 
 	shuffle(deck);

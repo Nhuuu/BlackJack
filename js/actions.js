@@ -1,7 +1,7 @@
 document.getElementById("balance").innerText = player.money;
 
 
-// For every chip clicked, it pushes the value to the wager array.
+// For every chip clicked, it pushes the value to the wagerTotal.
 function placeWager(){
 	var allChips = document.querySelectorAll(".chips");
 	for(var i = 0; i < allChips.length; i++){
@@ -19,6 +19,7 @@ function placeWager(){
 		});
 	};
 };
+
 
 function hitMe(target){
 	if(target.score < 21){

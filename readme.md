@@ -1,10 +1,8 @@
 https://nhuuu.github.io/BlackJack/
 
-A JavaScript based Blackjack game. Beat the dealer by getting as close to 21 without going over. Get an A and a 10 point card and achieve BlackJack.
+Blackjack game, beat the dealer by getting a higher score without going over 21. Get an "A" and a 10 point card and achieve BlackJack!
 
-<p align="center">
-<img src="./otherImgs/blackjackgame.jpeg" width="654" height="450">
-</p>
+![](./otherImgs/blackjackgame.jpeg)
 
 ## Requirements
 * Game has directions on how to play
@@ -17,6 +15,9 @@ A JavaScript based Blackjack game. Beat the dealer by getting as close to 21 wit
 
 ## Technologies Used
 * Materialize CSS Framework
+* HTML
+* CSS
+* Javascript
 
 ## Process
 1. Laid out game board structure and created a grid structure to maintain responsiveness.
