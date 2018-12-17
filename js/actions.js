@@ -46,6 +46,7 @@ function stand(){
 	checkWin(); 
 };
 
+
 function dealerLimits(){
 		if(dealer.score < 17){
 		while(dealer.score < 17){

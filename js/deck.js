@@ -32,11 +32,9 @@ function shuffle(deck){
 // Populate the back of the card image and value on initial deal.
 function backCard(){
 	dealer.hand.push(shuffledDeck.shift());
-  console.log(dealer.hand);
 	bCard = document.createElement("img");
 	bCard.src = "./cardImgs/cardback.jpg";
   bCard.classList.add("dealtCards");
-  bCard.classList.add("flip");
 	document.querySelector(dealer.selector).appendChild(bCard);
 };
 
