@@ -27,9 +27,9 @@ Blackjack game, beat the dealer by getting a higher score without going over 21.
 1.	Researched game rules to include, and created key action buttons.
 1.	Retrieved card and chip graphics.
 1.	First JS focus was on getting the cards on the board.
-* Created and assigned count values to each card
-* Randomized the order of the deck using the Fisher-Yates shuffle technique
-* Appended two cards from the top of the shuffled deck to the dealer (one faced down), and two cards to the player. The faced down card, still holds a card value, in case the dealer achieves a blackjack
+ * Created and assigned count values to each card
+ * Randomized the order of the deck using the Fisher-Yates shuffle technique
+ * Appended two cards from the top of the shuffled deck to the dealer (one faced down), and two cards to the player. The faced down card, still holds a card value, in case the dealer achieves a blackjack
 1.	Created a hit function that can deal one card to either the dealer or player. if needed.
 1.	Added logic to place the wager before being able to deal, hit and then stand.
 1.	Added logic for aces, default aces value is 11, if there is an ace in the hand and the hand count is over 21, the ace switches the ace to value at 1.
