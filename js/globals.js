@@ -30,7 +30,7 @@ var player = {
 	selector: '.pHand', // for querySelector
 	scoreClass: '.pScore',
 	score: 0,
-	money: 50,
+	money: 500,
 	name: "Player"
 };
 
