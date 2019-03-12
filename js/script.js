@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("deal").addEventListener("click", function(){
 		if(wager != "" && player.score === 0){
 		document.querySelector(".msg").innerText = "Hit Or Stand";
-		dealCard.play();
+		dealCardSound.play();
 		dealDeck();
 		checkBlackJack();
 		};
@@ -43,12 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	});
 
-	// Restart the game
+	// Restart the game - link?
 	document.querySelector(".again").addEventListener("click", function(){
 		if (player.money === 0) { 
 		document.getElementById("balance").innerText = player.money;
 		shuffle(deck);
- 		};
- 	});
-
- });
+		};
+	});
+});

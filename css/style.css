@@ -75,10 +75,10 @@ h5 {
 .action {
 	font-size: 20px;
 	color: white;
-  	padding: 4px;
-  	background-image: linear-gradient(to top, #303030 0%, #BF541B 100%);
-  	margin: 1px;
- }
+	padding: 4px;
+	background-image: linear-gradient(to top, #303030 0%, #BF541B 100%);
+	margin: 1px;
+}
 
 img {
 	height: 115px;
