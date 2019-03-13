@@ -34,12 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	});
 
-	// Double down - fix to only allow once and one hit after
+	// Double down
 	document.getElementById("double").addEventListener("click", function(){
-		if (wagerTotal != 0){
-		document.getElementById("betAmt").innerText = wagerTotal * 2;
-		document.getElementById("balance").innerText = player.money - wagerTotal;
-		pokerChip.play();
+		if (wagerTotal != 0 && player.hand.length === 2){
+			player.money = player.money - wagerTotal;
+			wagerTotal = wagerTotal * 2;
+			document.getElementById("betAmt").innerText = wagerTotal;
+			document.getElementById("balance").innerText = player.money;
+			pokerChip.play();
+			hitPlayer();
+			stand();
 		};
 	});
 
