@@ -1,6 +1,3 @@
-document.getElementById("balance").innerText = player.money;
-
-
 // For every chip clicked
 function placeWager(){
 	var allChips = document.querySelectorAll(".chips");
@@ -56,6 +53,7 @@ function dealerLimits(){
 	};
 };
 
+// Check everything below this line.....................
 
 function checkBlackJack(){
 	if (dealer.score === 21 && dealer.hand.length === 2){
@@ -64,9 +62,11 @@ function checkBlackJack(){
 		setTimeout(clearHand, 3000);
 	} else if (player.score === 21 && player.hand.length === 2){
 		document.querySelector(".msg").innerText = player.name + " has blackJack!";
+		player.money = player.money + wagerTotal + wagerTotal * 1.5; // check this
 		document.getElementById("balance").innerText = player.money;
 		setTimeout(clearHand, 3000);
 	};
+	return player.money;
 };
 
 
@@ -77,16 +77,19 @@ function checkBust(){
 		setTimeout(clearHand, 4000);
 	} else if(dealer.score > 21){
 		document.querySelector(".msg").innerText = dealer.name + " busts!";
-		document.getElementById("balance").innerText = player.money + wagerTotal;
+		player.money = player.money + wagerTotal * 2;
+		document.getElementById("balance").innerText = player.money;
 		setTimeout(clearHand, 4000);
 	};
+	return player.money;
 };
 
-
+// draw still takes money away, winning doesn't change player.money
 
 function checkWin(){
 	if(player.score > dealer.score){
 		document.querySelector(".msg").innerText = "Player wins!";
+		player.money = player.money + wagerTotal*2;
 		document.getElementById("balance").innerText = player.money + wagerTotal;
 		setTimeout(clearHand, 3000);
 	} else if(player.score < dealer.score && dealer.score <= 21){
@@ -94,7 +97,9 @@ function checkWin(){
 		setTimeout(clearHand, 3000);
 	} else if(player.score === dealer.score){
 		document.querySelector(".msg").innerText = "Draw!";
+		player.money = player.money + wagerTotal;
 		document.getElementById("balance").innerText = player.money;
 		setTimeout(clearHand, 3000);
 	};
+	return player.money
 };

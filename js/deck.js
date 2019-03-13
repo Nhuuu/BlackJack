@@ -77,8 +77,6 @@ function clearHand(){
 	var dealt = document.querySelectorAll(".dealtCards");
 	for (var i = 0; i < dealt.length; i++){
 		dealt[i].remove();
-		// shuffledDeck.push(dealer.hand.pop());
-		// shuffledDeck.push(player.hand.pop());
 	};
 	document.querySelector(player.scoreClass).innerText = "";
 	document.querySelector(dealer.scoreClass).innerText = "";

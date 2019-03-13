@@ -1,4 +1,5 @@
 body {
+	height: 100vh;
 	background-image: radial-gradient(#103F12, black);
 	background: cover;
 	display: flex;

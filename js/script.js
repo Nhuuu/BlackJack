@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Deal button 
 	document.getElementById("deal").addEventListener("click", function(){
 		if(wager != "" && player.score === 0){
-		document.querySelector(".msg").innerText = "Hit Or Stand";
+		document.querySelector(".msg").innerText = "Hit or Stand";
 		dealCardSound.play();
 		dealDeck();
 		checkBlackJack();
 		};
-		start = false;
+		start = false;  // to stop waging
 	});
 
 	// Hit button
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	});
 
-	// Double down
+	// Double down - fix to only allow once and one hit after
 	document.getElementById("double").addEventListener("click", function(){
 		if (wagerTotal != 0){
 		document.getElementById("betAmt").innerText = wagerTotal * 2;
