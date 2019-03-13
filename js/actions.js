@@ -53,7 +53,6 @@ function dealerLimits(){
 	};
 };
 
-// Check everything below this line.....................
 
 function checkBlackJack(){
 	if (dealer.score === 21 && dealer.hand.length === 2){
@@ -62,9 +61,9 @@ function checkBlackJack(){
 		setTimeout(clearHand, 3000);
 	} else if (player.score === 21 && player.hand.length === 2){
 		document.querySelector(".msg").innerText = player.name + " has blackJack!";
-		player.money = player.money + wagerTotal + wagerTotal * 1.5; // check this
-		document.getElementById("balance").innerText = player.money;
+		player.money = player.money + wagerTotal * 2.5;
 		setTimeout(clearHand, 3000);
+		document.getElementById("balance").innerText = player.money;
 	};
 	return player.money;
 };
@@ -78,28 +77,26 @@ function checkBust(){
 	} else if(dealer.score > 21){
 		document.querySelector(".msg").innerText = dealer.name + " busts!";
 		player.money = player.money + wagerTotal * 2;
-		document.getElementById("balance").innerText = player.money;
 		setTimeout(clearHand, 4000);
+		document.getElementById("balance").innerText = player.money;
 	};
 	return player.money;
 };
 
-// draw still takes money away, winning doesn't change player.money
-
 function checkWin(){
 	if(player.score > dealer.score){
 		document.querySelector(".msg").innerText = "Player wins!";
-		player.money = player.money + wagerTotal*2;
-		document.getElementById("balance").innerText = player.money + wagerTotal;
+		player.money = player.money + wagerTotal * 2;
 		setTimeout(clearHand, 3000);
+		document.getElementById("balance").innerText = player.money;
 	} else if(player.score < dealer.score && dealer.score <= 21){
 		document.querySelector(".msg").innerText = "Dealer wins!";
 		setTimeout(clearHand, 3000);
 	} else if(player.score === dealer.score){
 		document.querySelector(".msg").innerText = "Draw!";
 		player.money = player.money + wagerTotal;
-		document.getElementById("balance").innerText = player.money;
 		setTimeout(clearHand, 3000);
+		document.getElementById("balance").innerText = player.money;
 	};
-	return player.money
+	return player.money;
 };
