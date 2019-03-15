@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("stand").addEventListener("click", function(){
 		if(dealer.hand){
 			stand();
-			console.log('standing')
 		};
 	});
 
@@ -48,11 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	});
 
-	// Restart the game - link, need to make it a button
-	document.querySelector(".again").addEventListener("click", function(){
-		if (player.money === 0) { 
-		document.getElementById("balance").innerText = player.money;
-		shuffle(deck);
-		};
+	// Restart the game
+	document.getElementById("again").addEventListener("click", function(){
+		location.reload()
 	});
 });
