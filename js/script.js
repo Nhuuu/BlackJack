@@ -31,23 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById("stand").addEventListener("click", function(){
 		if(dealer.hand){
 			stand();
+			console.log('standing')
 		};
 	});
 
 	// Double down
 	document.getElementById("double").addEventListener("click", function(){
-		if (wagerTotal != 0 && player.hand.length === 2){
+		if (player.hand.length === 2){
 			player.money = player.money - wagerTotal;
 			wagerTotal = wagerTotal * 2;
 			document.getElementById("betAmt").innerText = wagerTotal;
 			document.getElementById("balance").innerText = player.money;
 			pokerChip.play();
-			hitPlayer();
-			stand();
+			setTimeout(hitPlayer, 1000);
+			setTimeout(stand, 1000);
 		};
 	});
 
-	// Restart the game - link?
+	// Restart the game - link, need to make it a button
 	document.querySelector(".again").addEventListener("click", function(){
 		if (player.money === 0) { 
 		document.getElementById("balance").innerText = player.money;

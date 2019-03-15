@@ -1,3 +1,5 @@
+document.getElementById("balance").innerText = player.money;
+
 // For every chip clicked
 function placeWager(){
 	var allChips = document.querySelectorAll(".chips");
@@ -58,11 +60,11 @@ function checkBlackJack(){
 	if (dealer.score === 21 && dealer.hand.length === 2){
 		stand();
 		document.querySelector(".msg").innerText = dealer.name + " has blackJack!";
-		setTimeout(clearHand, 3000);
+		setTimeout(clearHand, 4000);
 	} else if (player.score === 21 && player.hand.length === 2){
 		document.querySelector(".msg").innerText = player.name + " has blackJack!";
 		player.money = player.money + wagerTotal * 2.5;
-		setTimeout(clearHand, 3000);
+		setTimeout(clearHand, 4000);
 		document.getElementById("balance").innerText = player.money;
 	};
 	return player.money;
@@ -73,11 +75,11 @@ function checkBlackJack(){
 function checkBust(){
 	if(player.score > 21){
 		document.querySelector(".msg").innerText = player.name + " busts!";
-		setTimeout(clearHand, 4000);
+		setTimeout(clearHand, 5000);
 	} else if(dealer.score > 21){
 		document.querySelector(".msg").innerText = dealer.name + " busts!";
 		player.money = player.money + wagerTotal * 2;
-		setTimeout(clearHand, 4000);
+		setTimeout(clearHand, 5000);
 		document.getElementById("balance").innerText = player.money;
 	};
 	return player.money;
@@ -87,15 +89,15 @@ function checkWin(){
 	if(player.score > dealer.score){
 		document.querySelector(".msg").innerText = "Player wins!";
 		player.money = player.money + wagerTotal * 2;
-		setTimeout(clearHand, 3000);
+		setTimeout(clearHand, 4000);
 		document.getElementById("balance").innerText = player.money;
 	} else if(player.score < dealer.score && dealer.score <= 21){
 		document.querySelector(".msg").innerText = "Dealer wins!";
-		setTimeout(clearHand, 3000);
+		setTimeout(clearHand, 4000);
 	} else if(player.score === dealer.score){
 		document.querySelector(".msg").innerText = "Draw!";
 		player.money = player.money + wagerTotal;
-		setTimeout(clearHand, 3000);
+		setTimeout(clearHand, 4000);
 		document.getElementById("balance").innerText = player.money;
 	};
 	return player.money;
